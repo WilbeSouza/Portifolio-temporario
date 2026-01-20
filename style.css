@@ -1,0 +1,116 @@
+/*ESITLO GERAL*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    background-color: #000;
+    height: 100vh;
+}
+.interface{
+    max-width: 90%;
+    margin: 0 auto;
+}
+.flex{
+    display: flex;
+}
+
+.btn-contato button{
+    padding: 10px 40px;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: #7e7b7b;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color .2s ease, color .2s ease;
+    filter: drop-shadow(0 0 30px rgba(218, 222, 223, 0.2));
+    user-select: none;
+}
+
+/*ESTILO DO CABEÇALHO*/
+
+header{
+    padding: 20px;
+} 
+header > .interface{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    filter: drop-shadow(0 0 20px rgba(218, 222, 223, 0.2));
+    user-select: none;
+    font-size: 25px;
+}
+header a{
+    color: #888686;
+    text-decoration: none;
+    display: inline-block;
+}
+.menu-desktop a:hover{
+    color: #fff;
+    transform: scale(1.15);
+}
+header nav ul{
+    list-style-type: none;
+}
+header nav ul li{
+    display: inline-block;
+    padding: 0 40px;
+}
+.btn-contato button:hover{
+    box-shadow: 0x 0px 0px #ffffff;
+    background-color: #ffffff;
+    transform: scale(1.15);
+}
+.logo a{
+    cursor: default;
+}
+.logo img{
+    display: block;
+}
+
+/*ESTILO DO TOP SITE*/
+
+section.topo-do-site{
+    padding: 20px 4%;
+}
+section.topo-do-site .flex{
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+}
+.topo-do-site h1{
+    color: #fff;
+    font-size: 50px;
+    line-height: 40px;
+}
+.topo-do-site .txt-topo-site h1 span{
+    color: #535353;
+}
+
+.topo-do-site .txt-topo-site p{
+    color: #fff;
+    margin: 40px 0px;
+    font-size: 20px;
+}
+.topo-do-site .img-topo-site img{
+    max-width: 100%;
+    position: relative;
+    animation: flutuar 2s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 20px rgba(218, 222, 223, 0.39));
+    border-radius: 24px;
+    
+}
+
+
+@keyframes flutuar{
+    0%{
+        top: 0;
+    }
+    100%{
+        top: 30px;
+    }
+}
