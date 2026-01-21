@@ -1,24 +1,27 @@
 /*ESITLO GERAL*/
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
-body{
+
+body {
     background-color: #000;
     height: 100vh;
 }
-.interface{
+
+.interface {
     max-width: 90%;
     margin: 0 auto;
 }
-.flex{
+
+.flex {
     display: flex;
 }
 
-.btn-contato button{
+.btn-contato button {
     padding: 10px 40px;
     font-size: 18px;
     font-weight: 500;
@@ -31,86 +34,198 @@ body{
     user-select: none;
 }
 
+h2.titulo {
+    color: #fff;
+    font-size: 35px;
+    text-align: center;
+}
+
+h2.titulo span {
+    color: #535353;
+}
+
 /*ESTILO DO CABEÇALHO*/
 
-header{
+header {
     padding: 20px;
-} 
-header > .interface{
+}
+
+header>.interface {
     display: flex;
     align-items: center;
     justify-content: space-between;
     filter: drop-shadow(0 0 20px rgba(218, 222, 223, 0.2));
     user-select: none;
-    font-size: 25px;
+    font-size: 22px;
 }
-header a{
+
+header a {
     color: #888686;
     text-decoration: none;
     display: inline-block;
 }
-.menu-desktop a:hover{
+
+.menu-desktop a:hover {
     color: #fff;
     transform: scale(1.15);
 }
-header nav ul{
+
+header nav ul {
     list-style-type: none;
 }
-header nav ul li{
+
+header nav ul li {
     display: inline-block;
     padding: 0 40px;
 }
-.btn-contato button:hover{
+
+.btn-contato button:hover {
     box-shadow: 0x 0px 0px #ffffff;
     background-color: #ffffff;
     transform: scale(1.15);
 }
-.logo a{
+
+.logo a {
     cursor: default;
 }
-.logo img{
+
+.logo img {
     display: block;
 }
 
 /*ESTILO DO TOP SITE*/
 
-section.topo-do-site{
-    padding: 20px 4%;
+section.topo-do-site {
+    padding: 80px 4%;
 }
-section.topo-do-site .flex{
+
+section.topo-do-site .flex {
     align-items: center;
     justify-content: center;
     gap: 90px;
 }
-.topo-do-site h1{
+
+.topo-do-site h1 {
     color: #fff;
     font-size: 50px;
     line-height: 40px;
 }
-.topo-do-site .txt-topo-site h1 span{
+
+.topo-do-site .txt-topo-site h1 span {
     color: #535353;
 }
 
-.topo-do-site .txt-topo-site p{
+.topo-do-site .txt-topo-site p {
     color: #fff;
     margin: 40px 0px;
     font-size: 20px;
 }
-.topo-do-site .img-topo-site img{
+
+.topo-do-site .img-topo-site img {
     max-width: 100%;
     position: relative;
     animation: flutuar 2s ease-in-out infinite alternate;
     filter: drop-shadow(0 0 20px rgba(218, 222, 223, 0.39));
     border-radius: 24px;
-    
 }
 
-
-@keyframes flutuar{
-    0%{
+@keyframes flutuar {
+    0% {
         top: 0;
     }
-    100%{
+
+    100% {
         top: 30px;
     }
+}
+
+/*ESTILO DAS ESPECIALIDADES
+
+section.especialidades {
+    padding: 85px 4%;
+}
+
+section.especialidades .flex {
+    gap: 50px;
+}
+
+.especialidades .especialidades-box {
+    color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 45px;
+    transition: .5s;
+}
+
+.especialidades .especialidades-box:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 15px #ffffff8e;
+}
+
+.especialidades .especialidades-box i {
+    font-size: 60px;
+    filter: drop-shadow(0 0 20px rgba(218, 222, 223, 0.39));
+}
+
+.especialidades .especialidades-box h3 {
+    font-size: 30px;
+    margin: 15px 0%;
+    color: #535353;
+}*/
+/*ESTILO DAS ESPECIALIDADES*/
+
+section.especialidades {
+    padding: 85px 4%;
+}
+
+section.especialidades .flex {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* 🔑 força mesma altura */
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.especialidades .especialidades-box {
+    color: #fff;
+    background-color: #111;
+    padding: 30px;
+    border-radius: 20px;
+    margin-top: 45px;
+    transition: .4s;
+
+    /* 🔑 alinhamento interno */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    /* 🔑 largura padrão */
+    width: 420px;
+}
+
+.especialidades .especialidades-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #ffffffbb;
+}
+
+.especialidades .especialidades-box i {
+    font-size: 60px;
+    margin-bottom: 6px;
+    filter: drop-shadow(0 0 20px rgba(218, 222, 223, 0.39));
+}
+
+.especialidades .especialidades-box h3 {
+    font-size: 26px;
+    margin-top: 0;      /* remove espaço extra */
+    margin-bottom: 10px;
+    color: #535353;
+}
+
+.especialidades .especialidades-box p {
+    text-align: justify;    
+    text-justify: inter-word;    
+    hyphens: auto;                
+    line-height: 1.6;
+    color: #ccc;
 }
