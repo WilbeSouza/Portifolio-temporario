@@ -12,9 +12,16 @@ body {
     height: 100vh;
 }
 
+
 .interface {
-    max-width: 90%;
-    margin: 0 auto;
+    max-width: 1300px;
+    margin-inline: auto;
+    /* centraliza esquerda/direita */
+    padding-inline: clamp(24px, 5vw, 60px);
+}
+
+section {
+    width: 100%;
 }
 
 .flex {
@@ -29,14 +36,14 @@ body {
     border: 0;
     border-radius: 30px;
     cursor: pointer;
-    transition: background-color .2s ease, color .2s ease;
+    transition: .2s ease, color .2s ease;
     filter: drop-shadow(0 0 30px rgba(218, 222, 223, 0.2));
     user-select: none;
 }
 
 h2.titulo {
     color: #fff;
-    font-size: 35px;
+    font-size: 40px;
     text-align: center;
 }
 
@@ -44,10 +51,16 @@ h2.titulo span {
     color: #535353;
 }
 
+button:hover {
+    box-shadow: 0x 0px 0px #ffffff;
+    background-color: #ffffff;
+    transform: scale(1.15);
+}
+
 /*ESTILO DO CABEÇALHO*/
 
 header {
-    padding: 20px;
+    padding: 40px;
 }
 
 header>.interface {
@@ -68,6 +81,7 @@ header a {
 .menu-desktop a:hover {
     color: #fff;
     transform: scale(1.15);
+    transition: .2s ease;
 }
 
 header nav ul {
@@ -77,12 +91,6 @@ header nav ul {
 header nav ul li {
     display: inline-block;
     padding: 0 40px;
-}
-
-.btn-contato button:hover {
-    box-shadow: 0x 0px 0px #ffffff;
-    background-color: #ffffff;
-    transform: scale(1.15);
 }
 
 .logo a {
@@ -95,9 +103,10 @@ header nav ul li {
 
 /*ESTILO DO TOP SITE*/
 
-section.topo-do-site {
-    padding: 80px 4%;
+section.especialidades {
+    padding-block: 85px 4%;
 }
+
 
 section.topo-do-site .flex {
     align-items: center;
@@ -107,8 +116,9 @@ section.topo-do-site .flex {
 
 .topo-do-site h1 {
     color: #fff;
-    font-size: 50px;
+    font-size: 45px;
     line-height: 40px;
+    margin-top: 85px;
 }
 
 .topo-do-site .txt-topo-site h1 span {
@@ -118,7 +128,9 @@ section.topo-do-site .flex {
 .topo-do-site .txt-topo-site p {
     color: #fff;
     margin: 40px 0px;
-    font-size: 20px;
+    font-size: 18px;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .topo-do-site .img-topo-site img {
@@ -126,7 +138,7 @@ section.topo-do-site .flex {
     position: relative;
     animation: flutuar 2s ease-in-out infinite alternate;
     filter: drop-shadow(0 0 20px rgba(218, 222, 223, 0.39));
-    border-radius: 24px;
+
 }
 
 @keyframes flutuar {
@@ -172,36 +184,38 @@ section.especialidades .flex {
     margin: 15px 0%;
     color: #535353;
 }*/
+
 /*ESTILO DAS ESPECIALIDADES*/
 
 section.especialidades {
     padding: 85px 4%;
+    margin-top: 80px;
 }
 
 section.especialidades .flex {
     display: flex;
     justify-content: center;
-    align-items: stretch; /* 🔑 força mesma altura */
+    align-items: stretch;
     gap: 40px;
     flex-wrap: wrap;
 }
 
 .especialidades .especialidades-box {
     color: #fff;
-    background-color: #111;
     padding: 30px;
     border-radius: 20px;
     margin-top: 45px;
     transition: .4s;
 
-    /* 🔑 alinhamento interno */
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 
-    /* 🔑 largura padrão */
-    width: 420px;
+    width: auto;
+    max-width: 420px;
+    flex: 1 1 320px;
+    font-size: 18px;
 }
 
 .especialidades .especialidades-box:hover {
@@ -217,15 +231,77 @@ section.especialidades .flex {
 
 .especialidades .especialidades-box h3 {
     font-size: 26px;
-    margin-top: 0;      /* remove espaço extra */
+    margin-top: 0;
     margin-bottom: 10px;
     color: #535353;
 }
 
 .especialidades .especialidades-box p {
-    text-align: justify;    
-    text-justify: inter-word;    
-    hyphens: auto;                
+    text-align: justify;
+    text-justify: inter-word;
     line-height: 1.6;
     color: #ccc;
+}
+
+/*ESTILO DO SOBRE*/
+
+section.sobre {
+    padding: 80px 4%;
+}
+
+section.sobre .flex {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.sobre .img-sobre img {
+    width: 2280px;
+    max-width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.sobre .txt-sobre {
+    color: #fff;
+}
+
+.sobre .txt-sobre h2 {
+    font-size: 45px;
+    line-height: 40px;
+    margin-bottom: 30px;
+}
+
+.sobre .txt-sobre h2 span {
+    color: #535353;
+    display: block;
+}
+
+.sobre .txt-sobre p {
+    text-align: justify;
+    font-size: 18px;
+    margin: 35px 0;
+}
+
+.sobre .txt-sobre .btn-social a {
+    text-decoration: none;
+}
+
+.sobre .txt-sobre .btn-social button {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    border: none;
+    background-color: #7e7b7b;
+    font-size: 35px;
+    cursor: pointer;
+    margin: 10px;
+    transition: .2s ease;
+    filter: drop-shadow(0 0 20px rgba(218, 222, 223, 0.39));
+}
+
+.sobre .txt-sobre .btn-social button:hover {
+    background-color: #ffffff;
+    color: #000;
+    transform: scale(1.15);
 }
