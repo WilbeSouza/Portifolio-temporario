@@ -297,11 +297,72 @@ section.sobre .flex {
     cursor: pointer;
     margin: 10px;
     transition: .2s ease;
-    filter: drop-shadow(0 0 20px rgba(218, 222, 223, 0.39));
+    filter: drop-shadow(0 0 5px rgba(218, 222, 223, 0.39));
 }
-
 .sobre .txt-sobre .btn-social button:hover {
     background-color: #ffffff;
     color: #000;
     transform: scale(1.15);
+}
+
+/*ESTILO DO PORTIFOLIO*/
+section.portifolio{
+    padding: 85px 4%;
+    box-shadow: 0 0 40px 10px #ffffff28;
+}
+section.portifolio .flex{
+    justify-content: space-around;
+}
+.img-port{
+    width: 360px;
+    height: 460px;
+    background-size: cover;
+    background-position: 100% 0%;
+    transition: 5s;
+    border-radius: 40px;
+    cursor: pointer;
+    position: relative;
+     filter: grayscale(100%);
+   
+}
+.img-port:hover{
+    filter: grayscale(0%);
+    background-position: 100% 100%;
+    
+}
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*font-size: 30px;*/
+    font-weight: 600;
+    color: #ffffff;
+    opacity: 0;
+    transition: .5s;
+    box-shadow: 0 0 20px 5px #ffffff28;
+    /*letter-spacing: 2px;*/
+    filter: drop-shadow(0 0 10px black);    font-size: 2rem;
+    color: #fff;
+    text-shadow: 5px 5px 0 #000000, 10px 10px 0 #808080;
+    animation: shadow-dance 2.5s infinite;
+}
+
+@keyframes shadow-dance {
+    0%, 100% {
+        text-shadow: 5px 5px 0 #000000, 10px 10px 0 #808080;
+    }
+    50% {
+        text-shadow: -5px -5px 0 #000000, -10px -10px 0 #808080;
+    }
+}
+
+.overlay:hover{
+    opacity: 10;
+    
 }
