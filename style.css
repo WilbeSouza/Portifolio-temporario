@@ -16,7 +16,6 @@ body {
 .interface {
     max-width: 1300px;
     margin-inline: auto;
-    /* centraliza esquerda/direita */
     padding-inline: clamp(24px, 5vw, 60px);
 }
 
@@ -51,10 +50,11 @@ h2.titulo span {
     color: #535353;
 }
 
-button:hover {
+button:hover, form .btn-enviar input:hover {
     box-shadow: 0x 0px 0px #ffffff;
     background-color: #ffffff;
     transform: scale(1.15);
+    
 }
 
 /*ESTILO DO CABEÇALHO*/
@@ -306,6 +306,7 @@ section.sobre .flex {
 }
 
 /*ESTILO DO PORTIFOLIO*/
+
 section.portifolio{
     padding: 85px 4%;
     box-shadow: 0 0 40px 10px #ffffff28;
@@ -365,4 +366,47 @@ section.portifolio .flex{
 .overlay:hover{
     opacity: 10;
     
+}
+
+/*ESTILO DO FORMULARIO*/
+
+section.formulario{
+    padding: 80px 4%;
+}
+form{
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 40px;
+}
+form input, form textarea{
+    width: 100%;
+    background-color: #6363636b;
+    border: 0;
+    outline: 0;
+    padding: 20px 15px;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 18px;
+}
+form textarea{
+    resize: none;
+    min-height: 200px;
+    max-height: 350px;
+}
+form .btn-enviar{
+    margin-top: 20px;
+    text-align: center;
+}
+form .btn-enviar input{
+    width: 120px;
+    background-color: #fff;
+    color: #000;
+    filter: drop-shadow(0 0 10px rgba(118, 119, 119, 0.575));
+    cursor: pointer;
+    font-weight: 700;
+    transition: .2s ease;
 }
