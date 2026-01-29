@@ -27,18 +27,28 @@ section {
     display: flex;
 }
 
+.btn-curriculo,
 .btn-contato button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    width: 290px; 
     padding: 10px 40px;
-    font-size: 18px;
+
+    font-size: 20px;
     font-weight: 500;
     background-color: #7e7b7b;
     border: 0;
-    border-radius: 30px;
+    border-radius: 20px;
     cursor: pointer;
     transition: .2s ease, color .2s ease;
     filter: drop-shadow(0 0 30px rgba(218, 222, 223, 0.2));
     user-select: none;
 }
+
+
 
 h2.titulo {
     color: #fff;
@@ -50,11 +60,12 @@ h2.titulo span {
     color: #535353;
 }
 
-button:hover, form .btn-enviar input:hover {
+button:hover,
+form .btn-enviar input:hover {
     box-shadow: 0x 0px 0px #ffffff;
     background-color: #ffffff;
     transform: scale(1.15);
-    
+
 }
 
 /*ESTILO DO CABEÇALHO*/
@@ -101,12 +112,36 @@ header nav ul li {
     display: block;
 }
 
+.btn-curriculo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 10px 20px;
+    border-radius: 30px;
+    background-color: #7e7b7b;
+    color: #000000;
+    font-weight: 500;
+    text-decoration: none;
+    transition: .2s ease;
+
+    width: auto;
+}
+
+
+.btn-curriculo:hover {
+    box-shadow: 0x 0px 0px #ffffff;
+    background-color: #ffffff;
+    transform: scale(1.15);
+
+}
+
 /*ESTILO DO TOP SITE*/
 
 section.especialidades {
     padding-block: 85px 4%;
 }
-
 
 section.topo-do-site .flex {
     align-items: center;
@@ -139,6 +174,10 @@ section.topo-do-site .flex {
     animation: flutuar 2s ease-in-out infinite alternate;
     filter: drop-shadow(0 0 20px rgba(218, 222, 223, 0.39));
 
+}
+
+.btn-contato i {
+    font-size: 25px;
 }
 
 @keyframes flutuar {
@@ -283,11 +322,11 @@ section.sobre .flex {
     margin: 35px 0;
 }
 
-.sobre .txt-sobre .btn-social a {
+.btn-social a {
     text-decoration: none;
 }
 
-.sobre .txt-sobre .btn-social button {
+.btn-social button {
     width: 60px;
     height: 60px;
     border-radius: 30px;
@@ -299,6 +338,7 @@ section.sobre .flex {
     transition: .2s ease;
     filter: drop-shadow(0 0 5px rgba(218, 222, 223, 0.39));
 }
+
 .sobre .txt-sobre .btn-social button:hover {
     background-color: #ffffff;
     color: #000;
@@ -307,14 +347,16 @@ section.sobre .flex {
 
 /*ESTILO DO PORTIFOLIO*/
 
-section.portifolio{
+section.portifolio {
     padding: 85px 4%;
     box-shadow: 0 0 40px 10px #ffffff28;
 }
-section.portifolio .flex{
+
+section.portifolio .flex {
     justify-content: space-around;
 }
-.img-port{
+
+.img-port {
     width: 360px;
     height: 460px;
     background-size: cover;
@@ -323,15 +365,17 @@ section.portifolio .flex{
     border-radius: 40px;
     cursor: pointer;
     position: relative;
-     filter: grayscale(100%);
-   
+    filter: grayscale(100%);
+
 }
-.img-port:hover{
+
+.img-port:hover {
     filter: grayscale(0%);
     background-position: 100% 100%;
-    
+
 }
-.overlay{
+
+.overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -348,32 +392,37 @@ section.portifolio .flex{
     transition: .5s;
     box-shadow: 0 0 20px 5px #ffffff28;
     /*letter-spacing: 2px;*/
-    filter: drop-shadow(0 0 10px black);    font-size: 2rem;
+    filter: drop-shadow(0 0 10px black);
+    font-size: 2rem;
     color: #fff;
     text-shadow: 5px 5px 0 #000000, 10px 10px 0 #808080;
     animation: shadow-dance 2.5s infinite;
 }
 
 @keyframes shadow-dance {
-    0%, 100% {
+
+    0%,
+    100% {
         text-shadow: 5px 5px 0 #000000, 10px 10px 0 #808080;
     }
+
     50% {
         text-shadow: -5px -5px 0 #000000, -10px -10px 0 #808080;
     }
 }
 
-.overlay:hover{
+.overlay:hover {
     opacity: 10;
-    
+
 }
 
 /*ESTILO DO FORMULARIO*/
 
-section.formulario{
+section.formulario {
     padding: 80px 4%;
 }
-form{
+
+form {
     max-width: 500px;
     margin: auto;
     display: flex;
@@ -382,7 +431,9 @@ form{
     gap: 10px;
     margin-top: 40px;
 }
-form input, form textarea{
+
+form input,
+form textarea {
     width: 100%;
     background-color: #6363636b;
     border: 0;
@@ -392,21 +443,94 @@ form input, form textarea{
     color: #fff;
     font-size: 18px;
 }
-form textarea{
+
+form textarea {
     resize: none;
     min-height: 200px;
     max-height: 350px;
 }
-form .btn-enviar{
-    margin-top: 20px;
+
+form .btn-enviar {
+    margin-top: 0px;
     text-align: center;
+    
 }
-form .btn-enviar input{
+.lista-comentarios {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.comentarios {
+    background: #111;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255,255,255,0.05);
+}
+
+.comentarios h2 {
+    color: #fff;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.comentarios p {
+    color: #ccc;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+
+/*form .btn-enviar input {
     width: 120px;
+    height: 50px;
     background-color: #fff;
     color: #000;
     filter: drop-shadow(0 0 10px rgba(118, 119, 119, 0.575));
     cursor: pointer;
     font-weight: 700;
     transition: .2s ease;
+    text-align: center;
+    line-height: 10px;
+    align-items: center;
+}*/
+
+/* ESTILO DO RODAPÉ*/
+
+footer {
+    padding: 20px 4%;
+    box-shadow: 0 0 40px 10px #ffffff28;
+
+}
+
+footer .flex {
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .line-footer {
+    padding: 15px 0;
+}
+
+.borda {
+    border-top: 2px solid #535353;
+}
+
+footer .line-footer p i {
+    color: #fff;
+    font-size: 20px;
+}
+
+footer .line-footer p a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 8px;
+    font-size: 18px;
+    align-items: center;
+}
+
+.logo-footer {
+    display: block;
+    filter: drop-shadow(0 0 20px rgba(218, 222, 223, 0.2));
 }
