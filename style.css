@@ -34,7 +34,7 @@ section {
     justify-content: center;
     gap: 8px;
 
-    width: 290px; 
+    width: 290px;
     padding: 10px 40px;
 
     font-size: 20px;
@@ -135,6 +135,42 @@ header nav ul li {
     background-color: #ffffff;
     transform: scale(1.15);
 
+}
+
+/*AREA PARA VISUALIZAR CURRICULO*/
+
+.pagina-curriculo {
+    min-height: 100vh;
+    padding: 30px 4%;
+    color: #fff;
+    text-align: center;
+}
+
+.pagina-curriculo h1 {
+    font-size: 42px;
+    margin-bottom: 30px;
+}
+
+.pdf-container {
+    width: 100%;
+    height: 80vh;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+    margin-bottom: 30px;
+}
+
+.pdf-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.acoes-curriculo {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 /*ESTILO DO TOP SITE*/
@@ -453,8 +489,9 @@ form textarea {
 form .btn-enviar {
     margin-top: 0px;
     text-align: center;
-    
+
 }
+
 .lista-comentarios {
     margin-top: 40px;
     display: flex;
@@ -466,7 +503,7 @@ form .btn-enviar {
     background: #111;
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 0 15px rgba(255,255,255,0.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
 }
 
 .comentarios h2 {
