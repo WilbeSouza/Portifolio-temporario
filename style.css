@@ -68,6 +68,7 @@ form .btn-enviar input:hover {
 
 }
 
+
 /*ESTILO DO CABEÇALHO*/
 
 header {
@@ -80,7 +81,7 @@ header>.interface {
     justify-content: space-between;
     filter: drop-shadow(0 0 20px rgba(218, 222, 223, 0.2));
     user-select: none;
-    font-size: 22px;
+    font-size: 25px;
 }
 
 header a {
@@ -119,14 +120,14 @@ header nav ul li {
     gap: 8px;
 
     padding: 10px 20px;
-    border-radius: 30px;
+    border-radius: 20px;
     background-color: #7e7b7b;
     color: #000000;
     font-weight: 500;
     text-decoration: none;
     transition: .2s ease;
 
-    width: auto;
+    width: 180px;
 }
 
 
@@ -140,30 +141,33 @@ header nav ul li {
 /*AREA PARA VISUALIZAR CURRICULO*/
 
 .pagina-curriculo {
-    min-height: 100vh;
-    padding: 30px 4%;
+    height: 100vh;
+    padding: 20px 4%;
+    display: flex;
+    flex-direction: column;
     color: #fff;
     text-align: center;
+    user-select: none;
 }
 
 .pagina-curriculo h1 {
     font-size: 42px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .pdf-container {
+    flex: 1;
     width: 100%;
-    height: 80vh;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
-    margin-bottom: 30px;
+    border-radius: 40px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+    margin-bottom: 20px;
 }
 
 .pdf-container iframe {
     width: 100%;
     height: 100%;
-    border: none;
+    border-radius: 40px;
+    user-select: none;
 }
 
 .acoes-curriculo {
@@ -171,12 +175,16 @@ header nav ul li {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+    
+}
+.acoes-curriculo, .btn-curriculo i{
+    font-size: 20px;
 }
 
 /*ESTILO DO TOP SITE*/
 
 section.especialidades {
-    padding-block: 85px 4%;
+    padding-block: 90px 4%;
 }
 
 section.topo-do-site .flex {
@@ -190,6 +198,7 @@ section.topo-do-site .flex {
     font-size: 45px;
     line-height: 40px;
     margin-top: 85px;
+    
 }
 
 .topo-do-site .txt-topo-site h1 span {
@@ -393,8 +402,8 @@ section.portifolio .flex {
 }
 
 .img-port {
-    width: 460px;
-    height: 560px;
+    width: 360px;
+    height: 460px;
     background-size: cover;
     background-position: 100% 0%;
     transition: 5s;
@@ -486,10 +495,14 @@ form textarea {
     max-height: 350px;
 }
 
-form .btn-enviar {
-    margin-top: 0px;
-    text-align: center;
+form .btn-contato {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
 
+form .btn-contato button {
+    width: 30%;
 }
 
 .lista-comentarios {

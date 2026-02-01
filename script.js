@@ -25,4 +25,19 @@ form.addEventListener("submit", function (e) {
   });
 
   form.reset();
+
+  window.addEventListener("pageshow", function (event) {
+    if (event.persisted) {
+      document.getElementById("form-Contato").reset();
+    }
+  });
+  const form = document.getElementById("form-Contato");
+
+  form.addEventListener("submit", () => {
+    setTimeout(() => {
+      form.reset();
+    }, 100);
+  });
+
+
 });
