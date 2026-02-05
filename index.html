@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +13,8 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <script src="script.js" defer></script>
 
     <title>Portifolio Provisorio</title>
 </head>
@@ -26,23 +27,35 @@
                 <a href="#">
                     <img src="img/logotipo2.png" alt="Logo-do-Portifolio" width="160" class="logotipo">
                 </a>
-            </div><!--Logo-->
+            </div>
 
             <nav class="menu-desktop">
                 <ul>
-                    <li><a href="#">Início</a></li>
-                    <li><a href="#">Especialidade</a></li>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a href="#">Projetos</a></li>
+                    <li><a href="#" data-i18n="menu.home">Início</a></li>
+                    <li><a href="#" data-i18n="menu.skills">Especialidade</a></li>
+                    <li><a href="#" data-i18n="menu.about">Sobre</a></li>
+                    <li><a href="#" data-i18n="menu.projects">Projetos</a></li>
                 </ul>
             </nav>
 
             <div class="btn-contato">
+                <a href="curriculo.html" class="btn-curriculo" data-i18n="menu.cv">
+                    <i class="bi bi-file-person"></i> Currículo
+                </a>
 
-                <a href="curriculo.html" class="btn-curriculo"><i class="bi bi-file-person"></i> Currículo</a>
+                <div class="lang-selector">
+                    <button id="lang-toggle" class="btn-idioma" type="button">
+                        <img src="img/Icons-BR.png" id="current-flag">
+                        <i class="bi bi-caret-down-fill"></i>
+                    </button>
 
-            </div><!--btn-contato-->
-        </div><!--Interface-->
+                    <ul class="lang-menu">
+                        <li data-lang="pt"><img src="img/Icons-BR.png"> <span data-i18n="lang.pt">Português</span></li>
+                        <li data-lang="en"><img src="img/Icons-EUA.png"> <span data-i18n="lang.en">English</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </header>
 
     <main>
@@ -50,59 +63,72 @@
             <div class="interface">
                 <div class="flex">
                     <div class="txt-topo-site">
-                        <h1>CRIANDO EXPERIÊNCIA NA WEB<span>.</span></h1>
-                        <p>O desenvolvimento web une lógica, criatividade e estratégia. Através de um design bem
-                            estruturado, código limpo, performance otimizada e foco na experiência do usuário, surgem
+                        <h1 data-i18n="hero.title">CRIANDO EXPERIÊNCIA NA WEB</h1>
+
+                        <p data-i18n="hero.text">
+                            O desenvolvimento web une lógica, criatividade e estratégia. Através de
+                            um design bem estruturado, código limpo, performance otimizada e foco na experiência do
+                            usuário, surgem
                             experiências digitais que conectam ideias, pessoas e resultados de forma eficiente e
-                            inteligente, transformando sonhos em soluções reais.</p>
+                            inteligente, transformando sonhos em soluções reais.
+                        </p>
 
                         <div class="btn-contato">
                             <a href="https://wa.me/5547989090516" target="_blank" class="btn-contato">
                                 <button>
                                     <i class="bi bi-whatsapp"></i>
-                                    Entre em contato
+                                    <span data-i18n="hero.contact">Entre em contato</span>
                                 </button>
                             </a>
                         </div>
-                    </div><!--txt-top-site-->
+                    </div>
+
                     <div class="img-topo-site">
                         <img src="img/Wilbe2.png" alt="">
-                    </div><!--img-top-site-->
+                    </div>
                 </div>
-            </div><!--Interface-->
-        </section><!--Topo-do-Site-->
+            </div>
+        </section>
 
         <section class="especialidades">
             <div class="interface">
-                <h2 class="titulo">CONHECIMENTOS <span>&</span> PRÁTICAS</h2>
+                <h2 class="titulo" data-i18n="skills.title">CONHECIMENTOS <span>&</span> PRÁTICAS</h2>
+
                 <div class="flex">
                     <div class="especialidades-box">
                         <i class="bi bi-code-square"></i>
-                        <h3>Website</h3>
-                        <p>Websites pensados para oferecer boa estrutura, responsividade e organização visual. Os
+                        <h3 data-i18n="skills.website.title">Website</h3>
+                        <p data-i18n="skills.website.text">
+                            Websites pensados para oferecer boa estrutura, responsividade e organização visual. Os
                             projetos são baseados em estudos acadêmicos e aplicações práticas realizadas durante a
-                            formação.</p>
-                    </div><!--especialidades-box-->
+                            formação.
+                        </p>
+                    </div>
 
                     <div class="especialidades-box">
                         <i class="bi bi-shop"></i>
-                        <h3>Loja online</h3>
-                        <p>Projetos de lojas online focados em navegação intuitiva, organização de produtos e clareza
-                            das informações. As soluções são desenvolvidas a partir de estudos e projetos práticos.</p>
-                    </div><!--especialidades-box-->
+                        <h3 data-i18n="skills.shop.title">Loja online</h3>
+                        <p data-i18n="skills.shop.text">
+                            Projetos de lojas online focados em navegação intuitiva, organização de produtos e clareza
+                            das informações. As soluções são desenvolvidas a partir de estudos e projetos práticos.
+                        </p>
+                    </div>
 
                     <div class="especialidades-box">
                         <i class="bi bi-layout-text-window-reverse"></i>
-                        <h3>Blog</h3>
-                        <p>Estruturas de blog desenvolvidas para facilitar a leitura e a organização do conteúdo. Os
-                            projetos priorizam clareza, hierarquia visual e boa experiência para o usuário.</p>
-                    </div><!--especialidades-box-->
-                        <a href="certificados.html" class="btn-curriculo">
-            <i class="bi bi-award"></i> Certificados
-        </a>
-                </div><!--Flex-->
-            </div><!--interface-->
-        </section><!--especialidades-->
+                        <h3 data-i18n="skills.blog.title">Blog</h3>
+                        <p data-i18n="skills.blog.text">
+                            Estruturas de blog desenvolvidas para facilitar a leitura e a organização do conteúdo. Os
+                            projetos priorizam clareza, hierarquia visual e boa experiência para o usuário.
+                        </p>
+                    </div>
+
+                    <a href="certificados.html" class="btn-curriculo" data-i18n="skills.certificates">
+                        <i class="bi bi-award"></i> Certificados
+                    </a>
+                </div>
+            </div>
+        </section>
 
         <section class="sobre">
             <div class="interface">
@@ -112,74 +138,88 @@
                     </div>
 
                     <div class="txt-sobre">
-                        <h2>MUITO PRAZER <span>SOU WILBE DE SOUZA.</span></h2>
-                        <p>Sou um desenvolvedor web recém-formado, com 37 anos, movido pela curiosidade e pela vontade
+                        <h2 data-i18n="about.title">
+                            MUITO PRAZER <span>SOU WILBE DE SOUZA.</span>
+                        </h2>
+
+                        <p data-i18n="about.text">
+                            Sou um desenvolvedor web recém-formado, movido pela curiosidade e pela vontade
                             constante de evoluir. Gosto de construir interfaces bem organizadas, funcionais e com
                             atenção aos detalhes, busco unir estética e usabilidade. Tenho interesse especial em
                             inteligência artificial, área que encaro como ferramenta para criar soluções mais
                             inteligentes e eficientes e de adquirir conhecimento. Sou dedicado, aprendo rápido e levo a
                             sério cada projeto, e atualmente estou em busca da minha primeira oportunidade profissional
-                            na área, onde eu possa crescer, aprender na prática e contribuir com meu trabalho.</p>
+                            na área, onde eu possa crescer, aprender na prática e contribuir com meu trabalho.
+                        </p>
+
                         <div class="btn-social">
-                            <a href="https://www.linkedin.com/in/wilbesouzaribeiro" target="_blank"
-                                aria-label="LinkedIn">
+                            <a href="https://www.linkedin.com/in/wilbesouzaribeiro" target="_blank">
                                 <button><i class="bi bi-linkedin"></i></button>
                             </a>
 
-                            <a href="https://www.github.com/WilbeSouza" target="_blank" aria-label="GitHub">
+                            <a href="https://www.github.com/WilbeSouza" target="_blank">
                                 <button><i class="bi bi-github"></i></button>
                             </a>
 
-                            <a href="https://www.instagram.com/wilbe.souza.ribeiro/" target="_blank"
-                                aria-label="Instagram">
+                            <a href="https://www.instagram.com/wilbe.souza.ribeiro/" target="_blank">
                                 <button><i class="bi bi-instagram"></i></button>
                             </a>
                         </div>
-
-                    </div><!--txt-sobre-->
-                </div><!--flex-->
-            </div><!--Sobre-->
-        </section><!--interface-->
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section class="portifolio">
             <div class="interface">
-                <h2 class="titulo">MEU <span>PORTIFÓLIO.</span></h2>
+                <h2 class="titulo" data-i18n="portfolio.title">MEU <span>PORTIFÓLIO.</span></h2>
 
                 <div class="flex">
                     <div class="img-port" style="background-image: url(img/portifolio1.jpg);">
-                        <div class="overlay">Loja de Periféricos</div>
+                        <div class="overlay" data-i18n="portfolio.project1">Loja de Periféricos</div>
                     </div>
+
                     <div class="img-port" style="background-image: url(img/portifolio2.jpg);">
-                        <div class="overlay">Site de Filmes</div>
+                        <div class="overlay" data-i18n="portfolio.project2">Site de Filmes</div>
                     </div>
+
                     <div class="img-port" style="background-image: url(img/portifolio2.jpg);">
-                        <div class="overlay">projeto 3</div>
+                        <div class="overlay" data-i18n="portfolio.project3">projeto 3</div>
                     </div>
                 </div>
-
-            </div><!--interface-->
-        </section><!--Portifolio-->
+            </div>
+        </section>
 
         <section class="formulario">
             <div class="interface">
+                <h2 class="titulo" data-i18n="contact.title">DEIXE UM <span>COMENTÁRIO.</span></h2>
 
-                <h2 class="titulo">DEIXE UM <span>COMENTÁRIO.</span></h2>
+                <form id="form-Contato" action="https://formspree.io/f/mjgroggn" method="POST" data-i18n="contact.form">
 
-                <form id="form-Contato" action="https://formspree.io/f/mjgroggn" method="POST">
-                    <input type="text" name="nome" placeholder="Seu nome:" required>
-                    <input type="email" name="email" placeholder="Seu e-mail:" required>
-                    <input type="text" name="telefone" placeholder="Seu Celular (Opcional):">
-                    <textarea name="comentario" placeholder="Sua mensagem" required></textarea>
+                    <input type="text" name="nome" placeholder="Seu nome:" data-i18n-placeholder="contact.name"
+                        required>
+
+                    <input type="email" name="email" placeholder="Seu e-mail:" data-i18n-placeholder="contact.email"
+                        required>
+
+                    <input type="text" name="telefone" placeholder="Seu Celular (Opcional):"
+                        data-i18n-placeholder="contact.phone">
+
+                    <textarea name="comentario" placeholder="Sua mensagem" data-i18n-placeholder="contact.message"
+                        required></textarea>
 
                     <div class="btn-contato">
-                        <button type="submit"><i class="bi bi-send"></i> Enviar</button>
+                        <button type="submit">
+                            <i class="bi bi-send"></i>
+                            <span data-i18n="contact.send">Enviar</span>
+                        </button>
                     </div>
                 </form>
 
-                <div id="comentarios" class="lista-comentarios"></div>
 
-            </div><!--interface-->
-        </section><!--formulario-->
+                <div id="comentarios" class="lista-comentarios"></div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -189,27 +229,32 @@
                     <div class="logo-footer">
                         <img src="img/logotipo2.png" width="160" alt="">
                     </div>
+
                     <div class="btn-social">
-                        <a href="https://www.linkedin.com/in/wilbesouzaribeiro" target="_blank" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/in/wilbesouzaribeiro" target="_blank">
                             <button><i class="bi bi-linkedin"></i></button>
                         </a>
 
-                        <a href="https://www.github.com/WilbeSouza" target="_blank" aria-label="GitHub">
+                        <a href="https://www.github.com/WilbeSouza" target="_blank">
                             <button><i class="bi bi-github"></i></button>
                         </a>
 
-                        <a href="https://www.instagram.com/wilbe.souza.ribeiro/" target="_blank" aria-label="Instagram">
+                        <a href="https://www.instagram.com/wilbe.souza.ribeiro/" target="_blank">
                             <button><i class="bi bi-instagram"></i></button>
                         </a>
-                    </div><!--btn-social-->
-                </div><!--line-footer-->
+                    </div>
+                </div>
             </div>
 
             <div class="line-footer borda">
-                <p><i class="bi bi-envelope-at-fill"></i><a href="mailto:wilbe.souza.ribeiro@hotmail.com">
-                        wilbe.souza.ribeiro@hotmail.com</a></p>
-            </div><!--line-footer-->
-        </div><!--interface-->
+                <p>
+                    <i class="bi bi-envelope-at-fill"></i>
+                    <a href="mailto:wilbe.souza.ribeiro@hotmail.com">
+                        wilbe.souza.ribeiro@hotmail.com
+                    </a>
+                </p>
+            </div>
+        </div>
     </footer>
 
 </body>
