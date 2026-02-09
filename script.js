@@ -183,3 +183,30 @@ document.addEventListener("DOMContentLoaded", () => {
     langSelector.classList.remove("active");
   });
 });
+
+/*efeito no header*/
+document.querySelectorAll('.menu-desktop a[href^="#"]').forEach(link => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const id = this.getAttribute("href");
+    const section = document.querySelector(id);
+
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  });
+});
+
+window.addEventListener("scroll", () => {
+  const header = document.querySelector("header");
+  if (window.scrollY > 50) {
+    header.classList.add("shrink");
+  } else {
+    header.classList.remove("shrink");
+  }
+});
+
+
+

@@ -31,18 +31,30 @@
 
             <nav class="menu-desktop">
                 <ul>
-                    <li><a href="#" data-i18n="menu.home">Início</a></li>
-                    <li><a href="#" data-i18n="menu.skills">Especialidade</a></li>
-                    <li><a href="#" data-i18n="menu.about">Sobre</a></li>
-                    <li><a href="#" data-i18n="menu.projects">Projetos</a></li>
+                    <li><a href="#inicio" data-i18n="menu.home">Início</a></li>
+                    <li><a href="#especialidades" data-i18n="menu.skills">Especialidade</a><li>
+                    <li><a href="#sobre" data-i18n="menu.about">Sobre</a></li>
+                    <li><a href="#projetos" data-i18n="menu.projects">Projetos</a></li>
+                    <li><a href="#contato"> Contatos</a></li>
                 </ul>
             </nav>
 
+
             <div class="btn-contato">
-                
-                <a href="curriculo.html" class="btn-curriculo" data-i18n="menu.cv"><i class="bi bi-file-person"></i>
-                    Currículo
+
+                <!-- CURRÍCULO DESKTOP -->
+                <a href="curriculo.html" class="btn-curriculo curriculo-desktop">
+                    <i class="bi bi-file-person"></i>
+                    <span data-i18n="menu.cv">Currículo</span>
                 </a>
+
+                <!-- CURRÍCULO MOBILE -->
+                <a href="assets/pdf/Wilbe-souza.pdf.pdf" class="btn-curriculo curriculo-mobile" target="_blank">
+                    <i class="bi bi-file-earmark-pdf"></i>
+                    <span data-i18n="menu.cv">Currículo</span>
+                </a>
+
+
 
                 <div class="lang-selector">
                     <button id="lang-toggle" class="btn-idioma" type="button">
@@ -55,12 +67,13 @@
                         <li data-lang="en"><img src="img/Icons-EUA.png"> <span data-i18n="lang.en">English</span></li>
                     </ul>
                 </div>
+
             </div>
         </div>
     </header>
 
     <main>
-        <section class="topo-do-site">
+        <section class="topo-do-site" id="inicio">
             <div class="interface">
                 <div class="flex">
                     <div class="txt-topo-site">
@@ -91,47 +104,63 @@
             </div>
         </section>
 
-        <section class="especialidades">
+        <section class="especialidades" id="especialidades">
             <div class="interface">
-                <h2 class="titulo" data-i18n="skills.title">CONHECIMENTOS <span>&</span> PRÁTICAS</h2>
+                <h2 class="titulo" data-i18n="skills.title">
+                    CONHECIMENTOS <span>&</span> PRÁTICAS
+                </h2>
 
+                <!-- LINHA 1 – CARDS -->
                 <div class="flex">
                     <div class="especialidades-box">
                         <i class="bi bi-code-square"></i>
                         <h3 data-i18n="skills.website.title">Website</h3>
-                        <p data-i18n="skills.website.text">
-                            Websites pensados para oferecer boa estrutura, responsividade e organização visual. Os
+                        <p data-i18n="skills.website.text">Websites pensados para oferecer boa estrutura, responsividade
+                            e organização visual. Os
                             projetos são baseados em estudos acadêmicos e aplicações práticas realizadas durante a
-                            formação.
-                        </p>
+                            formação.</p>
                     </div>
 
                     <div class="especialidades-box">
                         <i class="bi bi-shop"></i>
                         <h3 data-i18n="skills.shop.title">Loja online</h3>
-                        <p data-i18n="skills.shop.text">
-                            Projetos de lojas online focados em navegação intuitiva, organização de produtos e clareza
-                            das informações. As soluções são desenvolvidas a partir de estudos e projetos práticos.
-                        </p>
+                        <p data-i18n="skills.shop.text">Projetos de lojas online focados em navegação intuitiva,
+                            organização de produtos e clareza
+                            das informações. As soluções são desenvolvidas a partir de estudos e projetos práticos.</p>
                     </div>
 
                     <div class="especialidades-box">
                         <i class="bi bi-layout-text-window-reverse"></i>
                         <h3 data-i18n="skills.blog.title">Blog</h3>
-                        <p data-i18n="skills.blog.text">
-                            Estruturas de blog desenvolvidas para facilitar a leitura e a organização do conteúdo. Os
+                        <p data-i18n="skills.blog.text"> Estruturas de blog desenvolvidas para facilitar a leitura e a
+                            organização do conteúdo. Os
                             projetos priorizam clareza, hierarquia visual e boa experiência para o usuário.
                         </p>
                     </div>
+                </div>
 
-                    <a href="certificados.html" class="btn-curriculo" data-i18n="skills.certificates">
-                        <i class="bi bi-award"></i> Certificados
+                <!-- LINHA 2 – ÍCONES -->
+                <div class="skills-icons">
+                    <i class="bi bi-filetype-html"></i>
+                    <i class="bi bi-filetype-css"></i>
+                    <i class="bi bi-filetype-js"></i>
+                    <i class="bi bi-filetype-php"></i>
+                    <i class="bi bi-filetype-sql"></i>
+                    <i class="bi bi-database"></i>
+                </div>
+
+                <!-- LINHA 3 – BOTÃO -->
+                <div class="certificados-btn">
+                    <a href="certificados.html" class="btn-curriculo">
+                        <i class="bi bi-award"></i>
+                        <span data-i18n="skills.certificates">Certificados</span>
                     </a>
                 </div>
             </div>
         </section>
 
-        <section class="sobre">
+
+        <section class="sobre" id="sobre">
             <div class="interface">
                 <div class="flex">
                     <div class="img-sobre">
@@ -171,7 +200,7 @@
             </div>
         </section>
 
-        <section class="portifolio">
+        <section class="portifolio" id="projetos">
             <div class="interface">
                 <h2 class="titulo" data-i18n="portfolio.title">MEU <span>PORTIFÓLIO.</span></h2>
 
@@ -191,7 +220,7 @@
             </div>
         </section>
 
-        <section class="formulario">
+        <section class="formulario" id="contato">
             <div class="interface">
                 <h2 class="titulo" data-i18n="contact.title">DEIXE UM <span>COMENTÁRIO.</span></h2>
 

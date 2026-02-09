@@ -10,8 +10,11 @@
 body {
     background-color: #000;
     height: 100vh;
-}
 
+}
+html {
+    scroll-behavior: smooth;
+}
 
 .interface {
     max-width: 1250px;
@@ -21,6 +24,7 @@ body {
 
 section {
     width: 100%;
+    scroll-margin-top: 120px; /* altura do header */
 }
 
 .flex {
@@ -29,6 +33,9 @@ section {
 
 .btn-curriculo,
 .btn-contato > button:not(.btn-idioma) {
+
+    width: 200px;      /* trava crescimento */
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -36,10 +43,11 @@ section {
 
     height: 52px;
     /* ALTURA PADRÃO */
-    min-width: 180px;
+    min-width: 240px;
     /* LARGURA BASE */
     padding-inline: 32px;
     /* controla largura pelo texto */
+    white-space: nowrap;
 
     font-size: 20px;
     font-weight: 500;
@@ -74,9 +82,34 @@ form .btn-enviar input:hover  {
 }
 
 /*ESTILO DO CABEÇALHO*/
+@media (min-width: 769px) {
+    header nav ul li a {
+        font-size: 22px;
+    }
+}
+
+main {
+    padding-top: 200px; /* mesma altura do header */
+}
 
 header {
-    padding: 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: 9999;
+
+    padding: 18px;
+    height: 200px;
+
+    background-color: #000;
+}
+
+header.shrink {
+    height: 120px;
+    padding: 18px;
+    transition: all 0.5s ease;
 }
 
 header>.interface {
@@ -85,8 +118,23 @@ header>.interface {
     justify-content: space-between;
     filter: drop-shadow(0 0 20px rgba(218, 222, 223, 0.2));
     user-select: none;
-    font-size: 22px;
 }
+.menu-desktop {
+    margin-right: center;
+}
+.menu-desktop a {
+    font-size: 22px;
+    color: #888686;
+    text-decoration: none;
+
+    padding: 6px 4px;     /* área de clique justa */
+    min-width: auto;     /* REMOVE o bloco gigante */
+    display: inline-block;
+
+    user-select: none;
+    caret-color: transparent;
+}
+
 
 header a {
     color: #888686;
@@ -96,17 +144,22 @@ header a {
 
 .menu-desktop a:hover {
     color: #fff;
-    transform: scale(1.05);
+    transform: scale(1.15);
     transition: .3s ease;
 }
 
 header nav ul {
     list-style-type: none;
+
+    display: flex;
+    align-items: center;
+    gap: 32px; /* espaço ENTRE os itens */
 }
 
 header nav ul li {
     display: inline-block;
-    padding: 0 40px;
+    padding: 0 5px;
+    padding: 0;
 }
 
 .logo a {
@@ -118,26 +171,32 @@ header nav ul li {
 }
 
 .btn-curriculo {
+    height: 52px;          /* mantém a altura */
+    min-width: unset;     /* remove largura mínima */
+    width: auto;          /* deixa o texto definir a largura */
+    padding-inline: 20px; /* ↓ diminui os lados */
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
 
-    border-radius: 20px;
+    border-radius: 18px;
     background-color: #7e7b7b;
     color: #000000;
-    font-weight: 500;
     text-decoration: none;
     transition: .2s ease;
 
+    font-size: 20px;
+    font-weight: 500;
 }
 
 .btn-curriculo:hover {
-    box-shadow: 0x 0px 0px #ffffff;
-    background-color: #ffffff;
     transform: scale(1.15);
-
+    background-color: #ffffff;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.233);
 }
+
 
 /*AREA PARA VISUALIZAR CURRICULO*/
 
@@ -150,26 +209,23 @@ header nav ul li {
     user-select: none;
 }
 
-/* linha do topo */
 .acoes-curriculo {
     position: relative;
-    margin-bottom: 30px;
+    justify-content: flex-start; /* ou center */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* botão fica à esquerda */
+
 .acoes-curriculo .btn-curriculo {
     position: absolute;
     left: 0;
     top: 50%;
-    transform: translateY(-50%);
-    font-size: 25px;
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.233);
+    margin-top: -26px; /* metade da altura do botão (52px) */
+    font-size: 22px;
+    
 }
-
-/* h1 centralizado independentemente do botão */
 
 .acoes-curriculo h1 {
     font-size: 45px;
@@ -198,6 +254,48 @@ header nav ul li {
     border: none;
 }
 
+/* botão escondido no desktop */
+.btn-pdf-mobile {
+    display: none;
+}
+.curriculo-mobile {
+    display: none;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .curriculo-desktop {
+        display: none;
+    }
+
+    .btn-pdf-mobile {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        margin: 40px auto 0;
+        padding: 16px 28px;
+
+        background: #7e7b7b;
+        color: #000;
+        text-decoration: none;
+        border-radius: 18px;
+
+        font-size: 20px;
+        font-weight: 600;
+        box-shadow: 0 0 25px rgba(255,255,255,.25);
+    }
+
+    .btn-pdf-mobile:hover {
+        background: #fff;
+        transform: scale(1.05);
+    }
+    .curriculo-mobile {
+        display: inline-flex;
+    }
+}
+
 /*ESTILO DO TOP SITE*/
 
 section.especialidades {
@@ -212,8 +310,8 @@ section.topo-do-site .flex {
 
 .topo-do-site h1 {
     color: #fff;
-    font-size: 45px;
-    line-height: 40px;
+    font-size: 42px;
+    line-height: 42px;
     margin-top: 85px;
 
 }
@@ -225,7 +323,7 @@ section.topo-do-site .flex {
 .topo-do-site .txt-topo-site p {
     color: #fff;
     margin: 40px 0px;
-    font-size: 18px;
+    font-size: 20px;
     text-align: justify;
     text-justify: inter-word;
 }
@@ -282,7 +380,7 @@ section.especialidades .flex {
     width: auto;
     max-width: 420px;
     flex: 1 1 320px;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .especialidades .especialidades-box:hover {
@@ -309,6 +407,35 @@ section.especialidades .flex {
     line-height: 1.6;
     color: #ccc;
 }
+
+/*ESTILO DO ICONES*/
+.skills-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    margin: 30px 0;
+}
+
+.skills-icons i {
+    font-size: 42px;
+    color: #fff;
+    opacity: 0.85;
+    transition: 0.3s ease;
+}
+
+.skills-icons i:hover {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+.certificados-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 
 /*ESTILO DO SOBRE*/
 
@@ -554,7 +681,7 @@ footer .line-footer p a {
 /*TRADUÇÃO*/
 
 .btn-idioma {
-  height: 42px;
+  height: 52px;
   width: 60px;
   padding: 0;
   gap: 4px;
@@ -571,10 +698,13 @@ footer .line-footer p a {
 
   min-width: auto !important;
   transition: 0.3s ease;
+  flex-shrink: 0;
 }
 
 .btn-idioma:hover {
-  transform: scale(1.05s);
+  background-color: #ffffff;
+  transform: scale(1.15);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.35);
 }
 .btn-idioma img {
   width: 26px;
@@ -583,6 +713,9 @@ footer .line-footer p a {
 .btn-idioma i {
   font-size: 12px;
   color: #000000;
+}
+.btn-idioma:active {
+  transform: scale(0.95);
 }
 
 /*ITENS DE MENU*/
@@ -595,6 +728,7 @@ footer .line-footer p a {
   display: flex;
   align-items: center;
   gap: 10px;
+  border-radius: 20px;
 }
 
 .lang-menu li img {
@@ -617,7 +751,7 @@ footer .line-footer p a {
   top: calc(100% + 8px);
   right: 0;
   background: #111;
-  border-radius: 10px;
+  border-radius: 20px;
   min-width: 160px;
   display: none;
   flex-direction: column;
@@ -636,5 +770,30 @@ header .btn-contato {
 header,
 header .interface {
   overflow: visible;
+  
+}
+/* CONTROLE DE TAMANHO DA FONTE */
+.font-controls {
+  display: flex;
+  gap: 8px;
 }
 
+.font-controls button {
+  height: 52px;
+  min-width: 52px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+
+  background-color: #7e7b7b;
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+
+  transition: 0.2s ease;
+}
+
+.font-controls button:hover {
+  background-color: #ffffff;
+  transform: scale(1.15);
+}
