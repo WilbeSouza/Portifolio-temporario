@@ -32,13 +32,12 @@
             <nav class="menu-desktop">
                 <ul>
                     <li><a href="#inicio" data-i18n="menu.home">Início</a></li>
-                    <li><a href="#especialidades" data-i18n="menu.skills">Especialidade</a><li>
+                    <li><a href="#especialidades" data-i18n="menu.skills">Especialidade</a></li>
                     <li><a href="#sobre" data-i18n="menu.about">Sobre</a></li>
                     <li><a href="#projetos" data-i18n="menu.projects">Projetos</a></li>
-                    <li><a href="#contato"> Contatos</a></li>
+                    <li><a href="#contato" data-i18n="menu.contact">Contatos</a></li>
                 </ul>
             </nav>
-
 
             <div class="btn-contato">
 
@@ -49,12 +48,10 @@
                 </a>
 
                 <!-- CURRÍCULO MOBILE -->
-                <a href="assets/pdf/Wilbe-souza.pdf.pdf" class="btn-curriculo curriculo-mobile" target="_blank">
+                <a href="assets/pdf/Wilbe-souza.pdf" class="btn-curriculo curriculo-mobile" target="_blank">
                     <i class="bi bi-file-earmark-pdf"></i>
                     <span data-i18n="menu.cv">Currículo</span>
                 </a>
-
-
 
                 <div class="lang-selector">
                     <button id="lang-toggle" class="btn-idioma" type="button">
@@ -67,6 +64,9 @@
                         <li data-lang="en"><img src="img/Icons-EUA.png"> <span data-i18n="lang.en">English</span></li>
                     </ul>
                 </div>
+                <button id="theme-toggle" class="btn-idioma" type="button" aria-label="Alternar tema">
+                    <i class="bi bi-moon-fill"></i>
+                </button>
 
             </div>
         </div>
@@ -88,17 +88,16 @@
                         </p>
 
                         <div class="btn-contato">
-                            <a href="https://wa.me/5547989090516" target="_blank" class="btn-contato">
-                                <button>
-                                    <i class="bi bi-whatsapp"></i>
-                                    <span data-i18n="hero.contact">Entre em contato</span>
-                                </button>
+                            <a href="https://wa.me/5547989090516" target="_blank" class="btn-cta">
+                                <i class="bi bi-whatsapp"></i>
+                                <span data-i18n="hero.contact">Entre em contato</span>
                             </a>
                         </div>
+
                     </div>
 
                     <div class="img-topo-site">
-                        <img src="img/Wilbe2.png" alt="">
+                        <img src="img/Wilbe2.png" alt="Foto de Wilbe Souza">
                     </div>
                 </div>
             </div>
@@ -159,17 +158,17 @@
             </div>
         </section>
 
-
         <section class="sobre" id="sobre">
             <div class="interface">
                 <div class="flex">
                     <div class="img-sobre">
-                        <img src="img/Wilbe.png" alt="">
+                        <img src="img/Wilbe.png" alt="Foto de Wilbe Souza">
                     </div>
 
                     <div class="txt-sobre">
-                        <h2 data-i18n="about.title">
-                            MUITO PRAZER <span>SOU WILBE DE SOUZA.</span>
+                        <h2>
+                            <span data-i18n="about.title">MUITO PRAZER</span>
+                            <span data-i18n="about.subtitle">SOU WILBE DE SOUZA.</span>
                         </h2>
 
                         <p data-i18n="about.text">
@@ -202,7 +201,7 @@
 
         <section class="portifolio" id="projetos">
             <div class="interface">
-                <h2 class="titulo" data-i18n="portfolio.title">MEU <span>PORTIFÓLIO.</span></h2>
+                <h2 class="titulo" data-i18n="portfolio.title">MEU PORTIFÓLIO.</h2>
 
                 <div class="flex">
                     <div class="img-port" style="background-image: url(img/portifolio1.jpg);">
@@ -222,9 +221,9 @@
 
         <section class="formulario" id="contato">
             <div class="interface">
-                <h2 class="titulo" data-i18n="contact.title">DEIXE UM <span>COMENTÁRIO.</span></h2>
+                <h2 class="titulo" data-i18n="contact.title">DEIXE UM COMENTÁRIO.</h2>
 
-                <form id="form-Contato" action="https://formspree.io/f/mjgroggn" method="POST" data-i18n="contact.form">
+                <form id="form-Contato" action="https://formspree.io/f/mjgroggn" method="POST">
 
                     <input type="text" name="nome" placeholder="Seu nome:" data-i18n-placeholder="contact.name"
                         required>
@@ -239,13 +238,12 @@
                         required></textarea>
 
                     <div class="btn-contato">
-                        <button type="submit">
+                        <button type="submit" class="btn-cta">
                             <i class="bi bi-send"></i>
                             <span data-i18n="contact.send">Enviar</span>
                         </button>
                     </div>
                 </form>
-
 
                 <div id="comentarios" class="lista-comentarios"></div>
             </div>
@@ -261,6 +259,9 @@
                     </div>
 
                     <div class="btn-social">
+                        <a href="https://wa.me/5547989090516" target="_blank">
+                            <button><i class="bi bi-whatsapp"></i></button>
+                        </a>
                         <a href="https://www.linkedin.com/in/wilbesouzaribeiro" target="_blank">
                             <button><i class="bi bi-linkedin"></i></button>
                         </a>
@@ -286,7 +287,11 @@
             </div>
         </div>
     </footer>
-
+    <div id="sucesso-modal" class="sucesso-modal">
+        <div class="sucesso-box">
+            COMENTÁRIO ENVIADO COM SUCESSO
+        </div>
+    </div>
 </body>
 
 </html>

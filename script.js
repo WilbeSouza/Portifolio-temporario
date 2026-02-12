@@ -2,13 +2,20 @@ const form = document.getElementById("form-Contato");/*só colocar form-Contato 
 const comentarios = document.getElementById("comentarios");
 
 form.addEventListener("submit", function (e) {
-  e.preventDefault(); // evita reload
+  e.preventDefault();
 
   fetch(form.action, {
     method: "POST",
     body: new FormData(form),
     headers: { Accept: "application/json" }
   });
+
+  const modal = document.getElementById("sucesso-modal");
+  modal.classList.add("active");
+
+  setTimeout(() => {
+    modal.classList.remove("active");
+  }, 2500);
 
   form.reset();
 });
@@ -31,6 +38,7 @@ const translations = {
     "menu.skills": "Especialidade",
     "menu.about": "Sobre",
     "menu.projects": "Projetos",
+    "menu.contact": "Contatos",
 
     // HERO
     "hero.title": "CRIANDO EXPERIÊNCIA NA WEB",
@@ -82,6 +90,7 @@ const translations = {
     "menu.skills": "Skills",
     "menu.about": "About",
     "menu.projects": "Projects",
+    "menu.contact": "Contact",
 
     // HERO
     "hero.title": "CREATING WEB EXPERIENCES",
@@ -144,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 🔥 LINHA QUE ESTAVA FALTANDO
   langToggle.addEventListener("click", (e) => {
     e.stopPropagation();
-    console.log("CLICK NO BOTÃO IDIOMA");
+
     langSelector.classList.toggle("active");
   });
 
@@ -176,8 +185,8 @@ document.addEventListener("DOMContentLoaded", () => {
     currentFlag.src = flags[lang];
   }
 
-  localStorage.removeItem("lang");
-  setLanguage("pt");
+  const savedLang = localStorage.getItem("lang") || "pt";
+  setLanguage(savedLang);
 
   document.addEventListener("click", () => {
     langSelector.classList.remove("active");
@@ -209,4 +218,28 @@ window.addEventListener("scroll", () => {
 });
 
 
+/*botão lua/sol (mudando cor do site)*/
+const themeToggle = document.getElementById("theme-toggle");
+const themeIcon = themeToggle.querySelector("i");
+
+function setTheme(theme) {
+  const isLight = theme === "light";
+
+  document.body.classList.toggle("light", isLight);
+  localStorage.setItem("theme", theme);
+
+  // ÍCONE = AÇÃO DISPONÍVEL
+  themeIcon.className = isLight
+    ? "bi bi-moon-fill"  // está claro → pode ir para escuro
+    : "bi bi-sun-fill";  // está escuro → pode ir para claro
+}
+
+themeToggle.addEventListener("click", () => {
+  const isLight = document.body.classList.contains("light");
+  setTheme(isLight ? "dark" : "light");
+});
+
+// carregar tema salvo
+const savedTheme = localStorage.getItem("theme") || "dark";
+setTheme(savedTheme);
 
