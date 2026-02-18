@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Certificados</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="certificados.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
@@ -13,68 +14,71 @@
     <section class="pagina-certificado">
 
         <div class="topo-certificado">
+
             <a href="index.html" class="btn-certificado">
-                <i class="bi bi-arrow-left-square"></i> Voltar
+                <i class="bi bi-arrow-left-square"></i>
+                <span data-i18n="cert.back">Voltar</span>
             </a>
 
-            <h1>Certificados</h1>
+            <h1 data-i18n="cert.title">Certificados</h1>
+
         </div>
 
         <div class="galeria-certificado">
 
             <div class="card-certificado">
-                <p class="nome-certificado">Superior de Tecnologia em Desenvolvimento Web</p>
+                <p class="nome-certificado" data-i18n="cert.degree">Superior de Tecnologia em Desenvolvimento Web</p>
                 <img src="img/Faculdade_page-01.jpg" data-back="img/Faculdade_page-02.jpg"
                     alt="Superior de Tecnologia em Desenvolvimento Web">
             </div>
 
             <div class="card-certificado">
-                <p class="nome-certificado">Introdução a Lógica de Programação</p>
+                <p class="nome-certificado" data-i18n="cert.logic1">Introdução a Lógica de Programação</p>
                 <img src="img/Introdução a Lógica de Programação 1_page-01.jpg"
                     alt="Introdução a Lógica de Programação">
             </div>
 
             <div class="card-certificado">
-                <p class="nome-certificado">Lógica de Programação & Algoritmos II</p>
+                <p class="nome-certificado" data-i18n="cert.logic2">Lógica de Programação & Algoritmos II</p>
                 <img src="img/Introdução a Lógica de Programação 2_page-01.jpg"
                     alt="Lógica de Programação & Algoritmos II">
             </div>
 
             <div class="card-certificado">
-                <p class="nome-certificado">Algoritmos e Lógica de Programação - Completo</p>
+                <p class="nome-certificado" data-i18n="cert.algorithms">Algoritmos e Lógica de Programação - Completo
+                </p>
                 <img src="img/Algoritmos-e-Lógica-de-Programação-UDEMY.png"
                     alt="Algoritmos e Lógica de Programação - Completo">
             </div>
 
             <div class="card-certificado">
-                <p class="nome-certificado">Fundamentos de HTML5</p>
+                <p class="nome-certificado" data-i18n="cert.html1">Fundamentos de HTML5</p>
                 <img src="img/HTML5 1_page-01.jpg" alt="Fundamentos de HTML5">
             </div>
 
             <div class="card-certificado">
-                <p class="nome-certificado">HTML5 Módulo Avançado</p>
+                <p class="nome-certificado" data-i18n="cert.html2">HTML5 Módulo Avançado</p>
                 <img src="img/HTML5 2_page-01.jpg" data-back="img/HTML5 2_page-02.jpg" alt="HTML5 Módulo Avançado">
             </div>
 
             <div class="card-certificado">
-                <p class="nome-certificado">Fundamentos em CSS</p>
+                <p class="nome-certificado" data-i18n="cert.css1">Fundamentos em CSS</p>
                 <img src="img/CSS 1_page-01.jpg" data-back="img/CSS 1_page-02.jpg" alt="Fundamentos em CSS">
             </div>
 
             <div class="card-certificado">
-                <p class="nome-certificado">CSS Módulo Avançado</p>
+                <p class="nome-certificado" data-i18n="cert.css2">CSS Módulo Avançado</p>
                 <img src="img/CSS 2_page-01.jpg" data-back="img/CSS 2_page-02.jpg" alt="CSS Módulo Avançado">
             </div>
 
             <div class="card-certificado">
-                <p class="nome-certificado">JavaScript, jQuery e Ajax</p>
+                <p class="nome-certificado" data-i18n="cert.js">JavaScript, jQuery e Ajax</p>
                 <img src="img/JavaScript, jQuery e Ajax_page-01.jpg"
                     data-back="img/JavaScript, jQuery e Ajax_page-02.jpg" alt="JavaScript, jQuery e Ajax">
             </div>
         </div>
 
     </section><!-- GALERIA -->
-
 
     <div class="modal-certificado" id="modal">
         <span class="fechar">&times;</span>
@@ -86,7 +90,9 @@
             </div>
         </div>
     </div><!-- MODAL -->
-    <script src="certificados.js"></script>
+    <script src="script.js" defer></script>
+    <script src="certificados.js" defer></script>
+
 </body>
 
 </html>

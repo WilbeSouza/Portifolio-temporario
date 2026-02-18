@@ -1,24 +1,24 @@
-const form = document.getElementById("form-Contato");/*só colocar form-Contato que volta ao normal*/
-const comentarios = document.getElementById("comentarios");
+const form = document.getElementById("form-Contato");
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
+if (form) {
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-  fetch(form.action, {
-    method: "POST",
-    body: new FormData(form),
-    headers: { Accept: "application/json" }
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" }
+    });
+
+    const modal = document.getElementById("sucesso-modal");
+    if (modal) {
+      modal.classList.add("active");
+      setTimeout(() => modal.classList.remove("active"), 2500);
+    }
+
+    form.reset();
   });
-
-  const modal = document.getElementById("sucesso-modal");
-  modal.classList.add("active");
-
-  setTimeout(() => {
-    modal.classList.remove("active");
-  }, 2500);
-
-  form.reset();
-});
+}
 
 // evita formulário voltar preenchido ao navegar
 window.addEventListener("pageshow", function (event) {
@@ -27,8 +27,6 @@ window.addEventListener("pageshow", function (event) {
     if (form) form.reset();
   }
 });
-
-
 
 // ================= I18N =================
 const translations = {
@@ -81,7 +79,26 @@ const translations = {
     "contact.send": "Enviar",
 
     // BOTÕES
-    "buttons.resume": "Currículo"
+    "buttons.resume": "Currículo",
+
+    //PAGINA CURRICULO
+    "cv.title": "Meu Currículo",
+    "cv.back": "Voltar",
+    "cv.open": "Abrir currículo",
+
+    // PAGINA CERTIFICADOS
+    "cert.title": "Certificados",
+    "cert.back": "Voltar",
+    "cert.degree": "Superior de Tecnologia em Desenvolvimento Web",
+    "cert.logic1": "Introdução a Lógica de Programação",
+    "cert.logic2": "Lógica de Programação & Algoritmos II",
+    "cert.algorithms": "Algoritmos e Lógica de Programação - Completo",
+    "cert.html1": "Fundamentos de HTML5",
+    "cert.html2": "HTML5 Módulo Avançado",
+    "cert.css1": "Fundamentos em CSS",
+    "cert.css2": "CSS Módulo Avançado",
+    "cert.js": "JavaScript, jQuery e Ajax",
+
   },
 
   en: {
@@ -131,11 +148,28 @@ const translations = {
     "contact.send": "Send",
 
     // BOTÕES
-    "menu.cv": "Resume"
+    "menu.cv": "Resume",
+
+    //PAGINA CURRICULO
+    "cv.title": "My Resume",
+    "cv.back": "Back",
+    "cv.open": "Open resume",
+
+    // PAGINA CERTIFICADO
+    "cert.title": "Certificates",
+    "cert.back": "Back",
+    "cert.degree": "Higher Degree in Web Development Technology",
+    "cert.logic1": "Introduction to Programming Logic",
+    "cert.logic2": "Programming Logic & Algorithms II",
+    "cert.algorithms": "Algorithms and Programming Logic - Complete",
+    "cert.html1": "HTML5 Fundamentals",
+    "cert.html2": "Advanced HTML5 Module",
+    "cert.css1": "CSS Fundamentals",
+    "cert.css2": "Advanced CSS Module",
+    "cert.js": "JavaScript, jQuery and Ajax",
 
   }
 };
-
 
 const flags = {
   pt: "img/Icons-BR.png",
@@ -143,27 +177,8 @@ const flags = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  const langSelector = document.querySelector(".lang-selector");
   const langToggle = document.getElementById("lang-toggle");
-  const langItems = document.querySelectorAll(".lang-menu li");
   const currentFlag = document.getElementById("current-flag");
-
-  if (!langSelector || !langToggle || !currentFlag) return;
-
-  // 🔥 LINHA QUE ESTAVA FALTANDO
-  langToggle.addEventListener("click", (e) => {
-    e.stopPropagation();
-
-    langSelector.classList.toggle("active");
-  });
-
-  langItems.forEach(item => {
-    item.addEventListener("click", () => {
-      const lang = item.dataset.lang;
-      setLanguage(lang);
-      langSelector.classList.remove("active");
-    });
-  });
 
   function setLanguage(lang) {
     localStorage.setItem("lang", lang);
@@ -174,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
         el.textContent = translations[lang][key];
       }
     });
-    // PLACEHOLDERS
+
     document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
       const key = el.dataset.i18nPlaceholder;
       if (translations[lang] && translations[lang][key]) {
@@ -182,34 +197,55 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    currentFlag.src = flags[lang];
+    if (currentFlag) {
+      currentFlag.src = lang === "pt"
+        ? "img/Icons-EUA.png"
+        : "img/Icons-BR.png";
+    }
   }
 
+  // 🔥 aplica idioma salvo EM QUALQUER PÁGINA
   const savedLang = localStorage.getItem("lang") || "pt";
   setLanguage(savedLang);
 
-  document.addEventListener("click", () => {
-    langSelector.classList.remove("active");
-  });
+  // Só adiciona clique se o botão existir
+  if (langToggle) {
+    langToggle.addEventListener("click", () => {
+      const currentLang = localStorage.getItem("lang") || "pt";
+      const newLang = currentLang === "pt" ? "en" : "pt";
+      setLanguage(newLang);
+    });
+  }
 });
 
 /*efeito no header*/
-document.querySelectorAll('.menu-desktop a[href^="#"]').forEach(link => {
-  link.addEventListener("click", function (e) {
-    e.preventDefault();
+const menuLinks = document.querySelectorAll('.menu-desktop a[href^="#"]');
 
-    const id = this.getAttribute("href");
-    const section = document.querySelector(id);
+if (menuLinks.length > 0) {
+  menuLinks.forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
 
-    section.scrollIntoView({
-      behavior: "smooth",
-      block: "center"
+      const id = this.getAttribute("href");
+      const section = document.querySelector(id);
+
+      if (!section) return;
+
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
     });
   });
-});
+}
+
+
 
 window.addEventListener("scroll", () => {
   const header = document.querySelector("header");
+
+  if (!header) return; // ← proteção
+
   if (window.scrollY > 50) {
     header.classList.add("shrink");
   } else {
@@ -219,8 +255,7 @@ window.addEventListener("scroll", () => {
 
 
 /*botão lua/sol (mudando cor do site)*/
-const themeToggle = document.getElementById("theme-toggle");
-const themeIcon = themeToggle.querySelector("i");
+/* ===== TEMA ===== */
 
 function setTheme(theme) {
   const isLight = theme === "light";
@@ -228,18 +263,26 @@ function setTheme(theme) {
   document.body.classList.toggle("light", isLight);
   localStorage.setItem("theme", theme);
 
-  // ÍCONE = AÇÃO DISPONÍVEL
-  themeIcon.className = isLight
-    ? "bi bi-moon-fill"  // está claro → pode ir para escuro
-    : "bi bi-sun-fill";  // está escuro → pode ir para claro
+  const themeToggle = document.getElementById("theme-toggle");
+  if (themeToggle) {
+    const icon = themeToggle.querySelector("i");
+    if (icon) {
+      icon.className = isLight
+        ? "bi bi-moon-fill"
+        : "bi bi-sun-fill";
+    }
+  }
 }
 
-themeToggle.addEventListener("click", () => {
-  const isLight = document.body.classList.contains("light");
-  setTheme(isLight ? "dark" : "light");
-});
-
-// carregar tema salvo
+/* aplica tema salvo ao carregar qualquer página */
 const savedTheme = localStorage.getItem("theme") || "dark";
 setTheme(savedTheme);
 
+/* adiciona clique só se o botão existir */
+const themeToggle = document.getElementById("theme-toggle");
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const isLight = document.body.classList.contains("light");
+    setTheme(isLight ? "dark" : "light");
+  });
+}

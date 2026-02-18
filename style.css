@@ -112,7 +112,6 @@ section {
     box-shadow: 0 0 22px 6px rgba(160, 160, 160, 0.35);
 }
 
-
 .btn-contato .btn-cta:hover {
     background-color: #ffffff;
     color: #000;
@@ -180,10 +179,7 @@ body.light header.scrolled .menu-desktop a {
     /* fundo preto */
 }
 
-
 /*ESTILO DO CABEÇALHO*/
-
-
 @media (min-width: 769px) {
     header nav ul li a {
         font-size: 22px;
@@ -304,11 +300,9 @@ header nav ul li {
     width: 70%;
 }
 
-
 body:not(.light) .menu-desktop a {
     color: #ffffff;
 }
-
 
 body.light .menu-desktop a {
     color: #000000;
@@ -331,36 +325,31 @@ body.light header.shrink .menu-desktop a {
     color: #ffffff;
 }
 
-
-
 /*BOTAO-CURRICULO*/
-.btn-curriculo {
-
-    height: 52px;
-    /* mantém a altura */
-    min-width: 170px;
-    /* remove largura mínima */
+.btn-curriculo {  height: 52px;
     width: auto;
-    /* deixa o texto definir a largura */
     padding-inline: 20px;
-    /* ↓ diminui os lados */
 
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
 
-    border-radius: 18px;
-    background-color: #7e7b7b;
-    color: #000000;
-    text-decoration: none;
-
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 500;
 
+    background-color: #7e7b7b;
+    color: #000;
 
-    /* mantém tudo */
-    transition: background-color 0.6s ease, transform 0.6s ease, box-shadow 0.6s ease;
+    text-decoration: none;
+
+    border-radius: 18px;
+    border: none;
+    cursor: pointer;
+
+    transition: background-color 0.6s ease,
+        transform 0.6s ease,
+        box-shadow 0.6s ease;
 
     box-shadow: 0 0 22px 6px rgba(160, 160, 160, 0.35);
 }
@@ -372,40 +361,56 @@ body.light header.shrink .menu-desktop a {
 }
 
 /*AREA PARA VISUALIZAR CURRICULO*/
-
 .pagina-curriculo {
     height: 100vh;
-    padding: 40px 4%;
+    padding: 0; /* remove o 4% lateral */
     display: flex;
     flex-direction: column;
-    color: #fff;
+    color: var(--text-color);
     user-select: none;
 }
 
+
+
 .acoes-curriculo {
-    position: relative;
-    justify-content: flex-start;
-    /* ou center */
+  width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    height: 120px;      /* mesma altura do header */
+    padding: 0 4%;      /* remove o padding vertical */
+
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 
 .acoes-curriculo .btn-curriculo {
     position: absolute;
-    left: 0;
+    left: 6%;
     top: 50%;
     margin-top: -26px;
-    /* metade da altura do botão (52px) */
     font-size: 22px;
-
 }
 
 .acoes-curriculo h1 {
     font-size: 45px;
     margin: 0;
     text-align: center;
+    
+    transform: translateY(15px);
+    animation: surgirTitulo 0.8s ease forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes surgirTitulo {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .btn-curriculo,
@@ -413,19 +418,40 @@ body.light header.shrink .menu-desktop a {
     font-size: 22px;
 }
 
+/* FUNDO PRETO → TOPO BRANCO */
+body:not(.light) .acoes-curriculo {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* FUNDO BRANCO → TOPO PRETO */
+body.light .acoes-curriculo {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* H1 herda corretamente */
+.acoes-curriculo h1 {
+    color: inherit;
+}
+
+
 /* PDF */
 .pdf-container {
     flex: 1;
     width: 70%;
-    margin: 0 auto 20px;
-    border-radius: 40px;
-    box-shadow: 0 0 40px rgba(255, 255, 255, 0.233);
+    margin: 30px auto 40px;
+    padding: 20px;
+    border-radius: 24px;
+    background: var(--card-bg, #ffffff);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    transition: 0.3s ease;
 }
 
 .pdf-container iframe {
     width: 100%;
     height: 100%;
-    border-radius: 30px;
+    border-radius: 16px;
     border: none;
 }
 
@@ -473,8 +499,16 @@ body.light header.shrink .menu-desktop a {
     }
 }
 
-/*TRADUÇÃO*/
+body.light .pdf-container {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
 
+body:not(.light) .pdf-container {
+    background: #1e1e1e;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
+}
+
+/*TRADUÇÃO*/
 .btn-idioma {
     height: 52px;
     width: 60px;
@@ -573,13 +607,10 @@ section.topo-do-site .flex {
 }
 
 /*ESTILO DAS ESPECIALIDADES*/
-.especialidades .especialidades-box {
-    background-color: var(--card-bg);
-}
-
 section.especialidades {
     padding: 85px 4%;
     margin-top: 80px;
+
 }
 
 section.especialidades .flex {
@@ -609,7 +640,10 @@ section.especialidades .flex {
     flex: 1 1 320px;
     font-size: 20px;
 
-    /* SOMBRA BASE – uniforme */
+    height: 460px;
+    /* 🔥 AGORA FIXO DE VERDADE */
+    justify-content: space-between;
+
     box-shadow: 0 0 22px rgba(150, 150, 150, 0.35);
 }
 
@@ -638,7 +672,10 @@ section.especialidades .flex {
     color: var(--text-muted);
     line-height: 1.6;
     text-align: justify;
+    flex-grow: 1;
+    /* 🔥 faz ocupar espaço igual */
 }
+
 
 /*ESTILO DO ICONES*/
 .skills-icons {
@@ -666,9 +703,7 @@ section.especialidades .flex {
     margin-top: 20px;
 }
 
-
 /*ESTILO DO SOBRE*/
-
 section.sobre {
     padding: 80px 4%;
 }
@@ -745,7 +780,6 @@ section.sobre .flex {
 }
 
 /*ESTILO DO PORTIFOLIO*/
-
 section.portifolio {
     padding: 85px 4%;
     box-shadow: var(--section-shadow);
@@ -838,7 +872,6 @@ body.light .img-port::after {
 }
 
 /*ESTILO DO FORMULARIO*/
-
 section.formulario {
     padding: 70px 4% 30px;
 }
@@ -878,8 +911,13 @@ form .btn-contato {
 }
 
 form .btn-contato button {
-    width: 30%;
+    width: auto;
 }
+form .btn-contato .btn-cta {
+    width: auto;
+    padding-inline: 28px;
+}
+
 
 .lista-comentarios {
     margin-top: 25px;
@@ -907,9 +945,7 @@ form .btn-contato button {
     line-height: 1.4;
 }
 
-/*BOTAO DO FORMULARIO ENVIAR*/
-/* ===== MODAL SUCESSO ===== */
-
+/*MODAL SUCESSO*/
 .sucesso-modal {
     position: fixed;
     inset: 0;
@@ -955,9 +991,7 @@ body.light .sucesso-box {
     color: #000000;
 }
 
-
 /* ESTILO DO RODAPÉ*/
-
 footer {
     padding: 20px 4%;
     box-shadow: var(--section-shadow);
@@ -998,48 +1032,13 @@ body.light .logo-footer img {
     filter: drop-shadow(0 0 8px rgba(60, 60, 60, 0.95));
 }
 
-
 /*ITENS DE MENU*/
-
-.lang-menu li {
-    padding: 8px 14px;
-    cursor: pointer;
-    color: #fff;
-
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-radius: 20px;
-}
-
 .lang-menu li img {
     width: 20px;
 }
 
 .lang-menu li:hover {
     background: #222;
-}
-
-/*DROPDOWN do botão IDIOMA*/
-.lang-selector {
-    position: relative;
-    z-index: 999;
-}
-
-.lang-menu {
-    position: absolute;
-    top: calc(100% + 8px);
-    right: 0;
-    background: #111;
-    border-radius: 20px;
-    min-width: 160px;
-    display: none;
-    flex-direction: column;
-    z-index: 1000;
-}
-
-.lang-selector.active .lang-menu {
-    display: flex;
 }
 
 header .btn-contato {
@@ -1052,7 +1051,6 @@ header .btn-contato {
 header,
 header .interface {
     overflow: visible;
-
 }
 
 /* CONTROLE DE TAMANHO DA FONTE */

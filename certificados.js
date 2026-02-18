@@ -40,3 +40,17 @@ modal.addEventListener('click', (e) => {
 });
 
 
+/*EFEITO SHRINK*/
+// efeito shrink no topo certificado
+window.addEventListener("scroll", () => {
+  const topo = document.querySelector(".topo-certificado");
+  if (!topo) return;
+
+  if (window.scrollY > 50) {
+    topo.classList.add("shrink");
+  } else {
+    topo.classList.remove("shrink");
+  }
+});
+
+

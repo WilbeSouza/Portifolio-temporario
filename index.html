@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="certificados.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,17 +54,10 @@
                     <span data-i18n="menu.cv">Currículo</span>
                 </a>
 
-                <div class="lang-selector">
-                    <button id="lang-toggle" class="btn-idioma" type="button">
-                        <img src="img/Icons-BR.png" id="current-flag">
-                        <i class="bi bi-caret-down-fill"></i>
-                    </button>
+                <button id="lang-toggle" class="btn-idioma" type="button" aria-label="Alternar idioma">
+                    <img src="img/Icons-EUA.png" id="current-flag">
+                </button>
 
-                    <ul class="lang-menu">
-                        <li data-lang="pt"><img src="img/Icons-BR.png"> <span data-i18n="lang.pt">Português</span></li>
-                        <li data-lang="en"><img src="img/Icons-EUA.png"> <span data-i18n="lang.en">English</span></li>
-                    </ul>
-                </div>
                 <button id="theme-toggle" class="btn-idioma" type="button" aria-label="Alternar tema">
                     <i class="bi bi-moon-fill"></i>
                 </button>
@@ -109,12 +103,11 @@
                     CONHECIMENTOS <span>&</span> PRÁTICAS
                 </h2>
 
-                <!-- LINHA 1 – CARDS -->
                 <div class="flex">
                     <div class="especialidades-box">
                         <i class="bi bi-code-square"></i>
-                        <h3 data-i18n="skills.website.title">Website</h3>
-                        <p data-i18n="skills.website.text">Websites pensados para oferecer boa estrutura, responsividade
+                        <h3 data-i18n="skills.web.title">Website</h3>
+                        <p data-i18n="skills.web.text">Websites pensados para oferecer boa estrutura, responsividade
                             e organização visual. Os
                             projetos são baseados em estudos acadêmicos e aplicações práticas realizadas durante a
                             formação.</p>
@@ -138,7 +131,6 @@
                     </div>
                 </div>
 
-                <!-- LINHA 2 – ÍCONES -->
                 <div class="skills-icons">
                     <i class="bi bi-filetype-html"></i>
                     <i class="bi bi-filetype-css"></i>
@@ -148,7 +140,6 @@
                     <i class="bi bi-database"></i>
                 </div>
 
-                <!-- LINHA 3 – BOTÃO -->
                 <div class="certificados-btn">
                     <a href="certificados.html" class="btn-curriculo">
                         <i class="bi bi-award"></i>
