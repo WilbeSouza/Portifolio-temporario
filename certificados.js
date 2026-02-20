@@ -53,4 +53,37 @@ window.addEventListener("scroll", () => {
   }
 });
 
+// ===== CERTIFICADOS MULTI IDIOMA =====
+document.addEventListener("DOMContentLoaded", () => {
+
+    const lang = localStorage.getItem("lang") || "pt";
+    const imgs = document.querySelectorAll(".card-certificado img");
+
+    imgs.forEach(img => {
+
+        let front = null;
+        let back = null;
+
+        if (lang === "en") {
+            front = img.getAttribute("data-front-en");
+            back  = img.getAttribute("data-back-en");
+        } else {
+            front = img.getAttribute("data-front-pt");
+            back  = img.getAttribute("data-back-pt");
+        }
+
+        // Segurança extra
+        if (front) {
+            img.src = front;
+        }
+
+        if (back) {
+            img.setAttribute("data-back", back);
+        } else if (front) {
+            img.setAttribute("data-back", front);
+        }
+
+    });
+
+});
 

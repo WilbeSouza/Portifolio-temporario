@@ -255,7 +255,6 @@ window.addEventListener("scroll", () => {
 
 
 /*botão lua/sol (mudando cor do site)*/
-/* ===== TEMA ===== */
 
 function setTheme(theme) {
   const isLight = theme === "light";
@@ -286,3 +285,30 @@ if (themeToggle) {
     setTheme(isLight ? "dark" : "light");
   });
 }
+
+
+/*tradução do curriculo*/
+// ===== CURRÍCULO DINÂMICO POR IDIOMA =====
+document.addEventListener("DOMContentLoaded", () => {
+
+  const currentLang = localStorage.getItem("lang") || "pt";
+
+  const pdfPath = currentLang === "pt"
+    ? "assets/pdf/wilbe-souza-resume-pt.pdf"
+    : "assets/pdf/wilbe-souza-resume-en.pdf";
+
+  // ===== Página curriculo.html =====
+  const iframe = document.getElementById("cv-frame");
+  const downloadBtn = document.getElementById("cv-download");
+
+  if (iframe) iframe.src = pdfPath;
+  if (downloadBtn) downloadBtn.href = pdfPath;
+
+  // ===== Botão mobile do INDEX =====
+  const mobileBtn = document.getElementById("cv-mobile");
+  if (mobileBtn) mobileBtn.href = pdfPath;
+
+  document.documentElement.lang = currentLang === "pt"
+    ? "pt-br"
+    : "en";
+});
