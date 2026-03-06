@@ -28,7 +28,7 @@ window.addEventListener("pageshow", function (event) {
   }
 });
 
-// ================= I18N =================
+/*----------------- tradução I18N --------------*/
 const translations = {
   pt: {
     // MENU
@@ -63,7 +63,7 @@ const translations = {
     "about.text": "Sou um desenvolvedor web recém-formado, movido pela curiosidade e pela vontade constante de evoluir. Gosto de construir interfaces bem organizadas, funcionais e com atenção aos detalhes, busco unir estética e usabilidade. Tenho interesse especial em inteligência artificial, área que encaro como ferramenta para criar soluções mais inteligentes e eficientes. Sou dedicado, aprendo rápido e levo a sério cada projeto, e atualmente estou em busca da minha primeira oportunidade profissional na área.",
 
     // PORTFÓLIO
-    "portfolio.title": "MEU PORTFÓLIO.",
+    "portfolio.title": "MEUS PROJETOS.",
     "portfolio.project1": "Loja de Periféricos",
     "portfolio.project2": "Site de Filmes",
     "portfolio.project3": "Projeto 3",
@@ -134,7 +134,7 @@ const translations = {
     "about.text": "I am a newly graduated web developer, driven by curiosity and a constant desire to grow. I enjoy building well-organized, functional interfaces with attention to detail, combining aesthetics and usability. I have a strong interest in artificial intelligence as a tool to create smarter and more efficient solutions. I am dedicated, learn quickly, and take every project seriously. Currently, I am seeking my first professional opportunity in the field.",
 
     // PORTFÓLIO
-    "portfolio.title": "MY PORTFOLIO.",
+    "portfolio.title": "MY PROJECTS.",
     "portfolio.project1": "Peripheral Store",
     "portfolio.project2": "Movie Website",
     "portfolio.project3": "Project 3",
@@ -177,6 +177,7 @@ const flags = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+  const cvMobile = document.getElementById("cv-mobile");
   const langToggle = document.getElementById("lang-toggle");
   const currentFlag = document.getElementById("current-flag");
 
@@ -211,11 +212,22 @@ document.addEventListener("DOMContentLoaded", () => {
   // Só adiciona clique se o botão existir
   if (langToggle) {
     langToggle.addEventListener("click", () => {
+
       const currentLang = localStorage.getItem("lang") || "pt";
       const newLang = currentLang === "pt" ? "en" : "pt";
+
       setLanguage(newLang);
+
+      if (cvMobile) {
+        cvMobile.href = newLang === "en"
+          ? "assets/pdf/wilbe-souza-resume-en.pdf"
+          : "assets/pdf/wilbe-souza-resume-pt.pdf";
+      }
+
     });
   }
+
+
 });
 
 /*efeito no header*/
@@ -271,7 +283,11 @@ function setTheme(theme) {
         : "bi bi-sun-fill";
     }
   }
+
+  /* FORÇA RECÁLCULO DOS EFEITOS DE SCROLL */
+  window.dispatchEvent(new Event("scroll"));
 }
+
 
 /* aplica tema salvo ao carregar qualquer página */
 const savedTheme = localStorage.getItem("theme") || "dark";
@@ -312,3 +328,65 @@ document.addEventListener("DOMContentLoaded", () => {
     ? "pt-br"
     : "en";
 });
+
+//menu mobile//
+document.addEventListener("DOMContentLoaded", () => {
+
+  const btnMenu = document.getElementById("btn-menu-mobile");
+  const menu = document.getElementById("menu-lateral");
+  const overlay = document.getElementById("menu-overlay");
+  const fechar = document.getElementById("fechar-menu");
+
+  const menuDesktop = document.querySelector(".menu-desktop ul");
+  const menuMobileContainer = document.querySelector(".menu-mobile-content");
+
+  // CLONA O MENU DESKTOP PARA MOBILE
+  if (menuDesktop && menuMobileContainer) {
+    menuMobileContainer.innerHTML = menuDesktop.outerHTML;
+  }
+
+  function abrirMenu() {
+    menu.classList.add("active");
+    overlay.classList.add("active");
+  }
+
+  function fecharMenu() {
+    menu.classList.remove("active");
+    overlay.classList.remove("active");
+  }
+
+  if (btnMenu) btnMenu.addEventListener("click", abrirMenu);
+  if (fechar) fechar.addEventListener("click", fecharMenu);
+  if (overlay) overlay.addEventListener("click", fecharMenu);
+
+});
+
+/*efeito automatico do "meu portfolio" para tablet/mobile*/
+
+const mediaQuery = window.matchMedia("(max-width: 1024px)");
+
+function ativarAnimacao(e) {
+
+  if (e.matches) {
+
+    const projetos = document.querySelectorAll(".img-port");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate");
+        } else {
+          entry.target.classList.remove("animate");
+        }
+      });
+    }, {
+      threshold: 0.8,
+      rootMargin: "-20% 0px -20% 0px"
+    });
+
+    projetos.forEach(projeto => observer.observe(projeto));
+  }
+}
+
+ativarAnimacao(mediaQuery);
+mediaQuery.addEventListener("change", ativarAnimacao);

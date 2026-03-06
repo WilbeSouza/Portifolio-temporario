@@ -49,7 +49,7 @@
                 </a>
 
                 <!-- CURRÍCULO MOBILE -->
-                <a href="#" class="btn-curriculo curriculo-mobile" id="cv-mobile" target="_blank">
+                <a href="curriculo.pdf" class="btn-curriculo curriculo-mobile" id="cv-mobile" target="_blank">
                     <i class="bi bi-file-earmark-pdf"></i>
                     <span data-i18n="menu.cv">Currículo</span>
                 </a>
@@ -61,9 +61,25 @@
                 <button id="theme-toggle" class="btn-idioma" type="button" aria-label="Alternar tema">
                     <i class="bi bi-moon-fill"></i>
                 </button>
+                <!--Criando menu mobile-->
+                <button class="btn-menu-mobile" id="btn-menu-mobile">
+                    <i class="bi bi-list"></i>
+                </button>
 
+                <div class="menu-lateral" id="menu-lateral">
+                    <div class="menu-header">
+                        <button id="fechar-menu">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </div>
+                    <nav class="menu-mobile-content"></nav>
+                </div>
+
+                <div class="menu-overlay" id="menu-overlay"></div>
             </div>
+
         </div>
+
     </header>
 
     <main>
@@ -192,7 +208,7 @@
 
         <section class="portifolio" id="projetos">
             <div class="interface">
-                <h2 class="titulo" data-i18n="portfolio.title">MEU PORTIFÓLIO.</h2>
+                <h2 class="titulo" data-i18n="portfolio.title">MEUS PROJETOS.</h2>
 
                 <div class="flex">
                     <div class="img-port" style="background-image: url(img/portifolio1.jpg);">
@@ -283,6 +299,7 @@
             COMENTÁRIO ENVIADO COM SUCESSO
         </div>
     </div>
+    
 </body>
 
 </html>

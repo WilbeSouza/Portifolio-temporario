@@ -71,7 +71,6 @@ html {
 section {
     width: 100%;
     scroll-margin-top: 120px;
-    /* altura do header */
 }
 
 .flex {
@@ -188,7 +187,6 @@ body.light header.scrolled .menu-desktop a {
 
 main {
     padding-top: 120px;
-    /* mesma altura do header */
 }
 
 header {
@@ -234,7 +232,7 @@ header nav ul {
     display: flex;
     align-items: center;
     gap: 32px;
-    /* espaço ENTRE os itens */
+
 }
 
 header nav ul li {
@@ -248,7 +246,7 @@ header nav ul li {
     display: flex;
     justify-content: center;
     gap: 28px;
-    /* espaçamento uniforme */
+
 }
 
 .menu-desktop a {
@@ -273,7 +271,6 @@ header nav ul li {
     caret-color: transparent;
 
     transition: color 0.8s ease;
-    /* mais lento e elegante */
 }
 
 .menu-desktop a::after {
@@ -326,7 +323,8 @@ body.light header.shrink .menu-desktop a {
 }
 
 /*BOTAO-CURRICULO*/
-.btn-curriculo {  height: 52px;
+.btn-curriculo {
+    height: 52px;
     width: auto;
     padding-inline: 20px;
 
@@ -343,7 +341,7 @@ body.light header.shrink .menu-desktop a {
 
     text-decoration: none;
 
-    border-radius: 18px;
+    border-radius: 12px;
     border: none;
     cursor: pointer;
 
@@ -363,7 +361,8 @@ body.light header.shrink .menu-desktop a {
 /*AREA PARA VISUALIZAR CURRICULO*/
 .pagina-curriculo {
     height: 100vh;
-    padding: 0; /* remove o 4% lateral */
+    padding: 0;
+    /* remove o 4% lateral */
     display: flex;
     flex-direction: column;
     color: var(--text-color);
@@ -373,10 +372,12 @@ body.light header.shrink .menu-desktop a {
 
 
 .acoes-curriculo {
-  width: 100vw;
+    width: 100vw;
     margin-left: calc(-50vw + 50%);
-    height: 120px;      /* mesma altura do header */
-    padding: 0 4%;      /* remove o padding vertical */
+    height: 120px;
+    /* mesma altura do header */
+    padding: 0 4%;
+    /* remove o padding vertical */
 
     display: flex;
     align-items: center;
@@ -400,7 +401,7 @@ body.light header.shrink .menu-desktop a {
     font-size: 45px;
     margin: 0;
     text-align: center;
-    
+
     transform: translateY(15px);
     animation: surgirTitulo 0.8s ease forwards;
     animation-delay: 0.2s;
@@ -581,7 +582,7 @@ section.topo-do-site .flex {
     color: var(--text-color);
     margin: 40px 0px;
     font-size: 20px;
-    text-align: justify;
+    text-align: justifycenter;
     text-justify: inter-word;
 }
 
@@ -598,11 +599,11 @@ section.topo-do-site .flex {
 
 @keyframes flutuar {
     0% {
-        top: 0;
+        transform: translateY(0);
     }
 
     100% {
-        top: 30px;
+        transform: translateY(20px);
     }
 }
 
@@ -688,7 +689,7 @@ section.especialidades .flex {
 }
 
 .skills-icons i {
-    font-size: 42px;
+    font-size: 34px;
     color: var(--text-color);
     /* ✅ segue o tema */
 }
@@ -707,6 +708,7 @@ section.especialidades .flex {
 section.sobre {
     padding: 80px 4%;
 }
+
 
 section.sobre .flex {
     display: flex;
@@ -779,14 +781,13 @@ section.sobre .flex {
 
 }
 
-/*ESTILO DO PORTIFOLIO*/
-section.portifolio {
-    padding: 85px 4%;
-    box-shadow: var(--section-shadow);
-}
+/*-------------MEUS PROJETOS--------------*/
 
 section.portifolio .flex {
-    justify-content: space-around;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
 .img-port {
@@ -794,12 +795,11 @@ section.portifolio .flex {
     height: 460px;
     background-size: cover;
     background-position: 100% 0%;
-    transition: 5s;
+    transition: background-position 5s ease, filter .5s ease;
     border-radius: 40px;
     cursor: pointer;
     position: relative;
     filter: grayscale(100%);
-
 }
 
 .img-port:hover {
@@ -866,7 +866,7 @@ body.light .img-port::after {
     }
 }
 
-.overlay:hover {
+.img-port:hover .overlay {
     opacity: 1;
 
 }
@@ -913,6 +913,7 @@ form .btn-contato {
 form .btn-contato button {
     width: auto;
 }
+
 form .btn-contato .btn-cta {
     width: auto;
     padding-inline: 28px;
@@ -1053,28 +1054,706 @@ header .interface {
     overflow: visible;
 }
 
-/* CONTROLE DE TAMANHO DA FONTE */
-.font-controls {
-    display: flex;
-    gap: 8px;
+/*Macbook/notebook, resolução 1280x800*/
+@media (min-width: 1281px) and (max-width: 1366px) {
+    section.portifolio .flex {
+        justify-content: center;
+        gap: 25px;
+    }
+
+    .img-port {
+        width: 300px;
+        height: 420px;
+    }
+
+    header>.interface {
+        padding-left: 20px;
+        padding-right: 70px;
+    }
+
+    .logo {
+        margin-left: 0;
+    }
+
+    header .btn-contato {
+        margin-right: 0;
+    }
+
 }
 
-.font-controls button {
-    height: 52px;
-    min-width: 52px;
-    border-radius: 12px;
-    border: none;
-    cursor: pointer;
+/*ESPAÇAMENTO REAL ENTRE PROJETOS*/
+@media (min-width: 1281px) {
 
-    background-color: #7e7b7b;
-    color: #000;
-    font-size: 20px;
-    font-weight: 600;
+    section.portifolio .flex {
+        display: flex;
+        flex-wrap: nowrap;
+        /* 🔥 impede quebrar */
+        justify-content: center;
+        gap: 30px;
+    }
 
-    transition: 0.2s ease;
+    .img-port {
+        flex: 0 0 360px;
+        /* 🔥 largura fixa real */
+    }
 }
 
-.font-controls button:hover {
-    background-color: #ffffff;
-    transform: scale(1.15);
+/*TABLET/IPAD resolução 768x1024*/
+/*------PARTE "Criando experiencia"----------*/
+@media (min-width: 768px) and (max-width: 1280px) {
+
+    header {
+        height: 100px;
+        padding: 0;
+        /* 🔥 remove padding lateral do header */
+    }
+
+    main {
+        padding-top: 100px;
+    }
+
+    .logo img {
+        width: 95px;
+    }
+
+    header nav ul {
+        gap: 15px;
+    }
+
+    .menu-desktop {
+        flex: 0;
+    }
+
+    .menu-desktop a {
+        font-size: 16px;
+        min-width: auto;
+        padding: 0 6px;
+        height: 36px;
+        line-height: 36px;
+    }
+
+    header .btn-contato {
+        gap: 8px;
+        flex-shrink: 0;
+    }
+
+    /* agrupa tudo mais compacto */
+    header>.interface {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+        justify-content: space-between;
+    }
+
+    header .btn-contato {
+        gap: 6px;
+    }
+
+    /* botão currículo vira só ícone */
+    .btn-curriculo i {
+        font-size: 16px;
+    }
+
+    /* idioma e tema mais compactos */
+    .btn-idioma {
+        width: 40px;
+        height: 40px;
+    }
+
+    /*-----------TOPO SITE-----------*/
+    .topo-do-site .flex {
+        gap: 25px;
+        align-items: center;
+    }
+
+    .topo-do-site .txt-topo-site {
+        flex: 1;
+        max-width: 480px;
+    }
+
+    .topo-do-site h1 {
+        font-size: 30px;
+        line-height: 1.3;
+    }
+
+    .topo-do-site .txt-topo-site p {
+        font-size: 15px;
+        line-height: 1.6;
+        text-align: justify;
+    }
+
+    .topo-do-site .img-topo-site {
+        flex: 1;
+        max-width: 320px;
+    }
+
+    .interface {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    /* botão mobile fixo */
+    .curriculo-desktop {
+        display: none;
+    }
+
+    .curriculo-mobile {
+        position: relative;
+        z-index: 10;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 42px;
+        height: 42px;
+
+        padding: 0;
+        overflow: visible;
+
+        flex-shrink: 0;
+    }
+
+    /* ícone sempre visível */
+    .curriculo-mobile i {
+        font-size: 18px;
+        transition: opacity .2s ease;
+    }
+
+    /* texto flutuante */
+    .curriculo-mobile span {
+        position: absolute;
+        z-index: 20;
+        right: 0;
+        top: 0;
+
+        height: 42px;
+        padding: 0 16px;
+        transform-origin: right;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: var(--button-bg);
+        color: var(--button-text);
+
+        border-radius: 12px;
+
+        white-space: nowrap;
+
+        opacity: 0;
+        pointer-events: none;
+
+        transition: opacity .25s ease;
+    }
+
+    /* quando passa o mouse */
+    .curriculo-mobile:hover span {
+        opacity: 1;
+        pointer-events: auto;
+        /* 🔥 só ativa quando visível */
+    }
+
+    /* quando abre, esconde o ícone */
+    .curriculo-mobile:hover i {
+        opacity: 0;
+    }
+
+    /*-------------SOBRE------------*/
+    section.sobre .flex {
+        display: block;
+    }
+
+    .sobre .img-sobre {
+        float: right;
+        width: 220px;
+        margin: 0 0 20px 35px;
+    }
+
+    .sobre .img-sobre img {
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    .sobre .txt-sobre p {
+        font-size: 17px;
+        line-height: 1.6;
+        text-align: justify;
+    }
+
+    .btn-social {
+        clear: both;
+        margin-top: 25px;
+        text-align: center;
+    }
+
+    section.sobre::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    /*-----------PARTE PROJETOS-----------*/
+    /* TABLET MENOR (768 até 819) */
+    @media (min-width: 768px) and (max-width: 819px) {
+
+        section.portifolio .flex {
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .img-port {
+            width: 100%;
+            max-width: 420px;
+            height: 420px;
+        }
+
+    }
+    /*-----------FOOTER-----------*/
+    .line-footer .flex {
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    footer .logo-footer img {
+        width: 110px;
+        /* diminui a logo */
+    }
+
+    footer .btn-social {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+    /* TABLET MAIOR (820 até 1024) */
+    @media (min-width: 820px) and (max-width: 1024px) {
+
+        section.portifolio .flex {
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .img-port {
+            width: 300px;
+            height: 420px;
+        }
+    }
+
+
+}
+
+/* estado inicial animado (tablet/mobile vão usar isso via JS) */
+.img-port.animate {
+    filter: grayscale(0%);
+    background-position: 100% 100%;
+    transition:
+        background-position 5s ease,
+        filter .5s ease;
+}
+
+.img-port.animate .overlay {
+    opacity: 1;
+}
+
+/* iPad Air 4 e iPad Pro 11 - LANDSCAPE */
+@media (min-width: 820px) and (max-width: 1024px) and (orientation: landscape) {
+
+    header>.interface {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .logo {
+        margin-left: 0;
+    }
+
+    header .btn-contato {
+        margin-right: 0;
+    }
+
+}
+
+/*MOBILE* resolução 390x844/
+
+/* ESCONDE COMPLETAMENTE MENU MOBILE FORA DO DESKTOP*/
+.btn-menu-mobile,
+.menu-lateral,
+.menu-overlay {
+    display: none;
+}
+
+@media (max-width: 767px) {
+
+    /* ESCONDE MENU DESKTOP */
+    .btn-menu-mobile,
+    .menu-lateral,
+    .menu-overlay {
+        display: block;
+    }
+
+    .menu-desktop {
+        display: none;
+    }
+
+    /* CURRÍCULO MOBILE SOMENTE ÍCONE */
+    .curriculo-mobile {
+        width: 42px;
+        height: 42px;
+        padding: 0;
+        justify-content: center;
+    }
+
+    /* ESCONDE TEXTO */
+    .curriculo-mobile span {
+        display: none !important;
+    }
+
+    /* REMOVE EFEITO HOVER VISUAL */
+    .curriculo-mobile:hover {
+        transform: none;
+        background-color: #7e7b7b;
+        box-shadow: 0 0 20px 6px rgba(160, 160, 160, 0.35);
+    }
+
+    /* BOTÃO HAMBURGUER */
+    .btn-menu-mobile {
+        width: 42px;
+        height: 42px;
+
+        border: none;
+        background: #7e7b7b;
+        border-radius: 12px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        cursor: pointer;
+
+        transition: background-color 0.6s ease,
+            transform 0.6s ease,
+            box-shadow 0.6s ease;
+
+        box-shadow: 0 0 20px 6px rgba(160, 160, 160, 0.35);
+    }
+
+    .btn-menu-mobile:hover {
+        background-color: #ffffff;
+        transform: scale(1.08);
+        box-shadow: 0 0 36px 10px rgba(180, 180, 180, 0.5);
+    }
+
+    .btn-menu-mobile:active {
+        transform: scale(0.95);
+    }
+
+    .btn-menu-mobile i {
+        font-size: 22px;
+        color: #000;
+    }
+
+    /*-----------BOTAO FOOTER------------*/
+    footer .btn-social {
+        display: flex;
+        gap: 8px;
+    }
+
+    .line-footer p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    footer .btn-social button {
+        width: 48px;
+        height: 48px;
+        font-size: 26px;
+    }
+
+    footer .logo-footer img {
+        width: 80px;
+    }
+
+    footer .line-footer .flex {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+    }
+
+    footer .btn-social {
+        justify-content: center;
+    }
+
+
+    /*-----------MENU LATERAL------------*/
+    .menu-lateral {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        height: 100vh;
+        background: var(--header-bg);
+        z-index: 10000;
+
+        transition: right .4s ease;
+        padding: 40px 20px;
+    }
+
+    .menu-lateral.active {
+        right: 0;
+    }
+
+    .menu-mobile-content ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        margin-top: 40px;
+    }
+
+    .menu-mobile-content a {
+        font-size: 22px;
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: 600;
+    }
+
+    /* OVERLAY */
+    .menu-overlay {
+        position: fixed;
+        inset: 0;
+        /*background: rgba(0,0,0,.5); sombra atras do menu*/
+        opacity: 0;
+        visibility: hidden;
+        transition: .3s;
+        z-index: 9999;
+    }
+
+    .menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* -------------PARTE "CRIANDO EXPERIENCIA"---------------*/
+
+    .topo-do-site h1 {
+        font-size: 28px;
+        line-height: 34px;
+        text-align: center;
+    }
+
+    section.topo-do-site .flex {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+    }
+
+    .topo-do-site .img-topo-site {
+        order: -1;
+        max-width: 240px;
+    }
+
+    .topo-do-site .img-topo-site img {
+        margin-top: 10px;
+    }
+
+    .topo-do-site .txt-topo-site {
+        max-width: 340px;
+        margin: 0 auto;
+    }
+
+    .topo-do-site .txt-topo-site p {
+        text-align: justify;
+        margin: 20px 0;
+        font-size: 16px;
+    }
+
+    .topo-do-site .btn-contato {
+        display: flex;
+        justify-content: center;
+    }
+
+    /*-----------PARTE DO "CONHECIMENTOS & PRÁTICAS"------------*/
+    h2.titulo {
+        font-size: 22px;
+    }
+
+    section.especialidades {
+        margin-top: 20px;
+        padding-top: 40px;
+    }
+
+    .especialidades .especialidades-box {
+        height: auto;
+        padding: 22px;
+    }
+
+    .especialidades .especialidades-box h3 {
+        font-size: 18px;
+    }
+
+    .especialidades .especialidades-box p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .skills-icons {
+        gap: 18px;
+        flex-wrap: wrap;
+    }
+
+    .skills-icons i {
+        font-size: 26px;
+    }
+
+    /*-------------PARTE DO "SOBRE"-------------*/
+    section.sobre {
+        padding: 10px 4% 60px;
+    }
+
+    section.sobre .flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .sobre .img-sobre {
+        flex: none;
+        width: 180px;
+    }
+
+    .sobre .img-sobre img {
+        width: 100%;
+        border-radius: 18px;
+    }
+
+    .sobre .txt-sobre {
+        max-width: 340px;
+        text-align: center;
+    }
+
+    .sobre .txt-sobre h2 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .sobre .txt-sobre p {
+        font-size: 15px;
+        line-height: 1.6;
+        margin: 20px 0;
+        text-align: justify;
+    }
+
+    .sobre .btn-social {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    /*-------------PARTE DO PROJETOS-------------*/
+    section.portifolio .flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .img-port {
+        width: 100%;
+        max-width: 340px;
+        height: 420px;
+        position: relative;
+        z-index: 1;
+    }
+
+    section.portifolio {
+        text-align: center;
+        position: relative;
+    }
+
+    section.portifolio .titulo {
+        position: relative;
+        z-index: 5;
+    }
+
+    /*-------------Comentarios-------------*/
+    .formulario form input {
+        height: 38px;
+    }
+
+    .formulario form textarea {
+        height: 110px;
+    }
+}
+
+/* TABLET LANDSCAPE (iPad Air 4 e iPad Pro 11) */
+@media (max-width: 1280px) and (hover: none) {
+
+    header {
+        height: 100px;
+        padding: 0;
+    }
+
+    main {
+        padding-top: 100px;
+    }
+
+    header>.interface {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .logo img {
+        width: 95px;
+    }
+
+    .menu-desktop {
+        flex: 0;
+    }
+
+    .menu-desktop a {
+        font-size: 16px;
+        min-width: auto;
+        padding: 0 6px;
+        height: 36px;
+        line-height: 36px;
+    }
+
+    header .btn-contato {
+        gap: 6px;
+    }
+
+    .btn-idioma {
+        width: 40px;
+        height: 40px;
+    }
+
+}
+
+/* AJUSTE HEADER TABLET LANDSCAPE REAL */
+@media (max-width: 1280px) {
+
+    .interface {
+        max-width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    header {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    header>.interface {
+        width: 100%;
+        max-width: 100%;
+    }
 }

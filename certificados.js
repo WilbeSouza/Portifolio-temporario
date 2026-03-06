@@ -17,6 +17,7 @@ cards.forEach(img => {
     });
 });
 
+
 // virar folha
 page.addEventListener('click', () => {
     page.classList.toggle('virada');
@@ -28,11 +29,6 @@ fechar.addEventListener('click', () => {
 });
 
 // clicar fora fecha
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.style.display = 'none';
-    }
-});
 modal.addEventListener('click', (e) => {
     if (!e.target.closest('.page')) {
         modal.style.display = 'none';
