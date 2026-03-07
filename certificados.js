@@ -49,10 +49,10 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// ===== CERTIFICADOS MULTI IDIOMA =====
+/*------------CERTIFICADOS MULTI IDIOMA --------------*/
 document.addEventListener("DOMContentLoaded", () => {
 
-    const lang = localStorage.getItem("lang") || "pt";
+    const lang = sessionStorage.getItem("lang") || "pt";
     const imgs = document.querySelectorAll(".card-certificado img");
 
     imgs.forEach(img => {

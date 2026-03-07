@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentFlag = document.getElementById("current-flag");
 
   function setLanguage(lang) {
-    localStorage.setItem("lang", lang);
+    sessionStorage.setItem("lang", lang);
 
     document.querySelectorAll("[data-i18n]").forEach(el => {
       const key = el.dataset.i18n;
@@ -203,17 +203,21 @@ document.addEventListener("DOMContentLoaded", () => {
         ? "img/Icons-EUA.png"
         : "img/Icons-BR.png";
     }
+    // idioma padrão ao abrir o site
+    if (!sessionStorage.getItem("lang")) {
+      sessionStorage.setItem("lang", "pt");
+    }
   }
 
   // 🔥 aplica idioma salvo EM QUALQUER PÁGINA
-  const savedLang = localStorage.getItem("lang") || "pt";
+  const savedLang = sessionStorage.getItem("lang") || "pt";
   setLanguage(savedLang);
 
   // Só adiciona clique se o botão existir
   if (langToggle) {
     langToggle.addEventListener("click", () => {
 
-      const currentLang = localStorage.getItem("lang") || "pt";
+      const currentLang = sessionStorage.getItem("lang") || "pt";
       const newLang = currentLang === "pt" ? "en" : "pt";
 
       setLanguage(newLang);
@@ -226,7 +230,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
   }
-
 
 });
 
@@ -251,8 +254,6 @@ if (menuLinks.length > 0) {
   });
 }
 
-
-
 window.addEventListener("scroll", () => {
   const header = document.querySelector("header");
 
@@ -265,14 +266,13 @@ window.addEventListener("scroll", () => {
   }
 });
 
-
 /*botão lua/sol (mudando cor do site)*/
 
 function setTheme(theme) {
   const isLight = theme === "light";
 
   document.body.classList.toggle("light", isLight);
-  localStorage.setItem("theme", theme);
+  sessionStorage.setItem("theme", theme);
 
   const themeToggle = document.getElementById("theme-toggle");
   if (themeToggle) {
@@ -288,26 +288,32 @@ function setTheme(theme) {
   window.dispatchEvent(new Event("scroll"));
 }
 
-
 /* aplica tema salvo ao carregar qualquer página */
-const savedTheme = localStorage.getItem("theme") || "dark";
-setTheme(savedTheme);
+// BOTÃO TEMA (sessão apenas)
+document.addEventListener("DOMContentLoaded", () => {
 
-/* adiciona clique só se o botão existir */
-const themeToggle = document.getElementById("theme-toggle");
-if (themeToggle) {
-  themeToggle.addEventListener("click", () => {
-    const isLight = document.body.classList.contains("light");
-    setTheme(isLight ? "dark" : "light");
-  });
-}
+  const savedTheme = sessionStorage.getItem("theme") || "dark";
+  setTheme(savedTheme);
 
+  const themeToggle = document.getElementById("theme-toggle");
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+
+      const isLight = document.body.classList.contains("light");
+
+      setTheme(isLight ? "dark" : "light");
+
+    });
+  }
+
+});
 
 /*tradução do curriculo*/
 // ===== CURRÍCULO DINÂMICO POR IDIOMA =====
 document.addEventListener("DOMContentLoaded", () => {
 
-  const currentLang = localStorage.getItem("lang") || "pt";
+  const currentLang = sessionStorage.getItem("lang") || "pt";
 
   const pdfPath = currentLang === "pt"
     ? "assets/pdf/wilbe-souza-resume-pt.pdf"
