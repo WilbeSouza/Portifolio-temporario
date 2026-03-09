@@ -297,7 +297,7 @@ body.light .card-certificado:hover .nome-certificado {
 
 }
 /*------ajusto do top mobile------*/
-@media (max-width: 390px) {
+@media (max-width: 767px) {
 
     .topo-certificado {
         height: 90px;

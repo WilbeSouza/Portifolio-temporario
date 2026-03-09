@@ -1361,7 +1361,69 @@ header .interface {
         display: inline-flex;
     }
 }
+/* TABLET LANDSCAPE (iPad Air 4 e iPad Pro 11) */
+@media (max-width: 1280px) and (hover: none) {
 
+    header {
+        height: 100px;
+        padding: 0;
+    }
+
+    main {
+        padding-top: 100px;
+    }
+
+    header>.interface {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .logo img {
+        width: 95px;
+    }
+
+    .menu-desktop {
+        flex: 0;
+    }
+
+    .menu-desktop a {
+        font-size: 16px;
+        min-width: auto;
+        padding: 0 6px;
+        height: 36px;
+        line-height: 36px;
+    }
+
+    header .btn-contato {
+        gap: 6px;
+    }
+
+    .btn-idioma {
+        width: 40px;
+        height: 40px;
+    }
+
+}
+
+/* AJUSTE HEADER TABLET LANDSCAPE REAL */
+@media (max-width: 1280px) {
+
+    .interface {
+        max-width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    header {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    header>.interface {
+        width: 100%;
+        max-width: 100%;
+    }
+}
 body.light .pdf-container {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
 }
@@ -1687,69 +1749,7 @@ body:not(.light) .pdf-container {
     }
 }
 
-/* TABLET LANDSCAPE (iPad Air 4 e iPad Pro 11) */
-@media (max-width: 1280px) and (hover: none) {
 
-    header {
-        height: 100px;
-        padding: 0;
-    }
-
-    main {
-        padding-top: 100px;
-    }
-
-    header>.interface {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .logo img {
-        width: 95px;
-    }
-
-    .menu-desktop {
-        flex: 0;
-    }
-
-    .menu-desktop a {
-        font-size: 16px;
-        min-width: auto;
-        padding: 0 6px;
-        height: 36px;
-        line-height: 36px;
-    }
-
-    header .btn-contato {
-        gap: 6px;
-    }
-
-    .btn-idioma {
-        width: 40px;
-        height: 40px;
-    }
-
-}
-
-/* AJUSTE HEADER TABLET LANDSCAPE REAL */
-@media (max-width: 1280px) {
-
-    .interface {
-        max-width: 100%;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    header {
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    header>.interface {
-        width: 100%;
-        max-width: 100%;
-    }
-}
 
 /*-------Confirmação de envia de comentario-------*/
 @media (max-width: 767px) {
