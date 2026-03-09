@@ -414,11 +414,6 @@ body.light header.shrink .menu-desktop a {
     }
 }
 
-.btn-curriculo,
-.btn-curriculo i {
-    font-size: 22px;
-}
-
 /* FUNDO PRETO → TOPO BRANCO */
 body:not(.light) .acoes-curriculo {
     background-color: #ffffff;
@@ -464,6 +459,7 @@ body.light .acoes-curriculo {
 .curriculo-mobile {
     display: none;
 }
+
 /*TRADUÇÃO*/
 .btn-idioma {
     height: 52px;
@@ -537,7 +533,7 @@ section.topo-do-site .flex {
     color: var(--text-color);
     margin: 40px 0px;
     font-size: 20px;
-    text-align: justifycenter;
+    text-align: justify;
     text-justify: inter-word;
 }
 
@@ -563,12 +559,6 @@ section.topo-do-site .flex {
 }
 
 /*ESTILO DAS ESPECIALIDADES*/
-section.especialidades {
-    padding: 85px 4%;
-    margin-top: 80px;
-
-}
-
 section.especialidades .flex {
     display: flex;
     justify-content: center;
@@ -755,6 +745,7 @@ section.portifolio .flex {
     cursor: pointer;
     position: relative;
     filter: grayscale(100%);
+    will-change: background-position, filter;
 }
 
 .img-port:hover {
@@ -989,14 +980,6 @@ body.light .logo-footer img {
 }
 
 /*ITENS DE MENU*/
-.lang-menu li img {
-    width: 20px;
-}
-
-.lang-menu li:hover {
-    background: #222;
-}
-
 header .btn-contato {
     margin: 0;
     display: flex;
@@ -1011,6 +994,7 @@ header .interface {
 
 /*Macbook/notebook, resolução 1280x800*/
 @media (min-width: 1281px) and (max-width: 1366px) {
+
     section.portifolio .flex {
         justify-content: center;
         gap: 25px;
@@ -1080,7 +1064,7 @@ header .interface {
     }
 
     .menu-desktop a {
-        font-size: 16px;
+        font-size: 18px;
         min-width: auto;
         padding: 0 6px;
         height: 36px;
@@ -1267,6 +1251,7 @@ header .interface {
         }
 
     }
+
     /*-----------FOOTER-----------*/
     .line-footer .flex {
         align-items: center;
@@ -1283,6 +1268,7 @@ header .interface {
         align-items: center;
         gap: 16px;
     }
+
     /* TABLET MAIOR (820 até 1024) */
     @media (min-width: 820px) and (max-width: 1024px) {
 
@@ -1302,17 +1288,25 @@ header .interface {
 
 }
 
-/* estado inicial animado (tablet/mobile vão usar isso via JS) */
-.img-port.animate {
-    filter: grayscale(0%);
-    background-position: 100% 100%;
-    transition:
-        background-position 5s ease,
-        filter .5s ease;
-}
+/* animação automática somente em dispositivos sem hover (tablet/mobile) */
+@media (hover: none) {
 
-.img-port.animate .overlay {
-    opacity: 1;
+    .img-port.animate {
+        filter: grayscale(0%);
+        background-position: 100% 100%;
+        transition:
+            background-position 5s ease,
+            filter .5s ease;
+    }
+
+    body.light .img-port.animate {
+        filter: grayscale(0%);
+    }
+
+    .img-port.animate .overlay {
+        opacity: 1;
+    }
+
 }
 
 /* iPad Air 4 e iPad Pro 11 - LANDSCAPE */
@@ -1332,6 +1326,7 @@ header .interface {
     }
 
 }
+
 /*MOBILE */
 @media (max-width: 768px) {
     .curriculo-desktop {
@@ -1754,4 +1749,16 @@ body:not(.light) .pdf-container {
         width: 100%;
         max-width: 100%;
     }
+}
+
+/*-------Confirmação de envia de comentario-------*/
+@media (max-width: 767px) {
+
+    .sucesso-box {
+        max-width: 90%;
+        padding: 22px 18px;
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
 }

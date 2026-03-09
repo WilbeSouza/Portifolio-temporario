@@ -28,7 +28,7 @@ window.addEventListener("pageshow", function (event) {
   }
 });
 
-/*----------------- tradução I18N --------------*/
+/*----------------- tradução----------------*/
 const translations = {
   pt: {
     // MENU

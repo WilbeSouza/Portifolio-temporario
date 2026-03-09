@@ -54,6 +54,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     margin: 0;
+
 }
 
 /*CABEÇALHO EFEITO SHRINK*/
@@ -135,7 +136,7 @@ body.light .topo-certificado.shrink h1 {
     filter: grayscale(100%);
     transition: 0.3s;
     display: block;
-    
+
     -webkit-user-drag: none;
 }
 
@@ -145,7 +146,7 @@ body.light .topo-certificado.shrink h1 {
 
 .card-certificado:hover img {
     filter: grayscale(0%);
-    
+
 }
 
 /* MODAL */
@@ -190,6 +191,7 @@ body.light .topo-certificado.shrink h1 {
     color: #000000;
     letter-spacing: 0.9px;
 }
+
 body.light .card-certificado:hover .nome-certificado {
     background: #000000;
     color: #ffffff;
@@ -218,10 +220,6 @@ body.light .card-certificado:hover .nome-certificado {
 
     user-select: none;
     caret-color: transparent;
-}
-
-.page.virada {
-    transform: rotateY(180deg);
 }
 
 .page.virada #modalImgBack {
@@ -262,18 +260,6 @@ body.light .card-certificado:hover .nome-certificado {
     transform: rotateY(180deg);
 }
 
-@media (max-width: 600px) {
-    .acoes-certificado {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .acoes-certificado .btn-certificado {
-        position: static;
-        transform: none;
-    }
-}
-
 /*reponsivo tablet/ipad*/
 /*certificados 2 lado a lado*/
 /* TABLET (768 até 1024) → 2 certificados */
@@ -290,8 +276,65 @@ body.light .card-certificado:hover .nome-certificado {
         max-height: 55vh;
     }
 }
+
 @media (max-width: 767px) {
     .galeria-certificado {
         grid-template-columns: 1fr;
     }
+}
+/*------ajuste do top tablet/ipad-------*/
+/* AJUSTE DO ESPAÇO DO TOPO PARA TABLET/IPAD */
+/* AJUSTE DO HEADER PARA TABLET/IPAD */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .topo-certificado {
+        height: 100px;
+    }
+
+    .pagina-certificado {
+        padding: 140px 6% 40px;
+    }
+
+}
+/*------ajusto do top mobile------*/
+@media (max-width: 390px) {
+
+    .topo-certificado {
+        height: 90px;
+        padding: 0 5%;
+    }
+
+    .topo-certificado h1 {
+        font-size: 28px;
+    }
+
+    .btn-certificado {
+        height: 44px;
+        font-size: 18px;
+        padding-inline: 16px;
+    }
+
+}
+
+@media (hover: none) {
+
+    .nome-certificado {
+        background: #ffffff;
+        color: #000000;
+    }
+
+    body.light .nome-certificado {
+        background: #000000;
+        color: #ffffff;
+    }
+
+}
+
+/*-----sem texto no botao voltar------*/
+@media (max-width: 1024px) {
+
+    .btn-certificado span {
+        display: none;
+    }
+
 }
