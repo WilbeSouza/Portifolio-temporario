@@ -1517,7 +1517,21 @@ body:not(.light) .pdf-container {
     }
 
 }
+@media screen and (max-width: 767px){
 
+:root{
+
+--fs-title-xl: 30px;
+--fs-title-lg: 24px;
+--fs-title-md: 20px;
+
+--fs-text-lg: 16px;
+--fs-text-md: 15px;
+--fs-text-sm: 14px;
+
+}
+
+}
 @media (max-width: 767px) {
 
     /* ESCONDE MENU DESKTOP */
