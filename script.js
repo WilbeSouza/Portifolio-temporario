@@ -33,7 +33,7 @@ const translations = {
   pt: {
     // MENU
     "menu.home": "Início",
-    "menu.skills": "Especialidade",
+    "menu.skills": "Especialidades",
     "menu.about": "Sobre",
     "menu.projects": "Projetos",
     "menu.contact": "Contatos",
