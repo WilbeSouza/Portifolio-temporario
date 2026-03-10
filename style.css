@@ -1,4 +1,4 @@
-/*mudar de preto para branco*/
+/*--------mudar de preto para branco--------*/
 :root {
     --bg-color: #000;
     --text-color: #ffffff;
@@ -16,6 +16,24 @@
     --hover-text: #888;
 
     --section-shadow: 0 0 40px 10px rgba(255, 255, 255, 0.15);
+}
+
+/*------ SISTEMA DE TIPOGRAFIA------- */
+
+:root {
+
+    --font-title: "Poppins", sans-serif;
+    --font-text: "Poppins", sans-serif;
+
+    /* ESCALA DE FONTES */
+    --fs-title-xl: 42px;
+    --fs-title-lg: 34px;
+    --fs-title-md: 28px;
+
+    --fs-text-lg: 20px;
+    --fs-text-md: 18px;
+    --fs-text-sm: 16px;
+
 }
 
 body.light {
@@ -126,7 +144,7 @@ section {
 
 h2.titulo {
     color: var(--text-color);
-    font-size: 30px;
+    font-size: var(--fs-title-lg);
     text-align: center;
 }
 
@@ -520,7 +538,7 @@ section.topo-do-site .flex {
 
 .topo-do-site h1 {
     color: var(--text-color);
-    font-size: 42px;
+    font-size: var(--fs-title-xl);
     line-height: 42px;
     margin-top: 85px;
 }
@@ -532,7 +550,7 @@ section.topo-do-site .flex {
 .topo-do-site .txt-topo-site p {
     color: var(--text-color);
     margin: 40px 0px;
-    font-size: 20px;
+    font-size: var(--fs-text-lg);
     text-align: justify;
     text-justify: inter-word;
 }
@@ -609,7 +627,7 @@ section.especialidades .flex {
 }
 
 .especialidades .especialidades-box h3 {
-    font-size: 26px;
+    font-size: var(--fs-title-md);
     margin-bottom: 10px;
     color: var(--text-color);
 }
@@ -691,7 +709,7 @@ section.sobre .flex {
 
 .sobre .txt-sobre p {
     text-align: justify;
-    font-size: 18px;
+    font-size: var(--fs-text-md);
     margin: 35px 0;
 }
 
@@ -1019,6 +1037,21 @@ header .interface {
     }
 
 }
+@media screen and (max-width: 1280px){
+
+:root{
+
+--fs-title-xl: 38px;
+--fs-title-lg: 32px;
+--fs-title-md: 26px;
+
+--fs-text-lg: 19px;
+--fs-text-md: 17px;
+--fs-text-sm: 15px;
+
+}
+
+}
 
 /*ESPAÇAMENTO REAL ENTRE PROJETOS*/
 @media (min-width: 1281px) {
@@ -1039,6 +1072,21 @@ header .interface {
 
 /*TABLET/IPAD resolução 768x1024*/
 /*------PARTE "Criando experiencia"----------*/
+@media screen and (max-width: 1024px){
+
+:root{
+
+--fs-title-xl: 34px;
+--fs-title-lg: 28px;
+--fs-title-md: 24px;
+
+--fs-text-lg: 18px;
+--fs-text-md: 16px;
+--fs-text-sm: 15px;
+
+}
+
+}
 @media (min-width: 768px) and (max-width: 1280px) {
 
     header {
@@ -1438,7 +1486,21 @@ body:not(.light) .pdf-container {
 /*MOBILE* resolução 390x844/
 
 /* ESCONDE COMPLETAMENTE MENU MOBILE FORA DO DESKTOP*/
+@media screen and (max-width: 480px){
 
+:root{
+
+--fs-title-xl: 26px;
+--fs-title-lg: 22px;
+--fs-title-md: 18px;
+
+--fs-text-lg: 15px;
+--fs-text-md: 14px;
+--fs-text-sm: 13px;
+
+}
+
+}
 .btn-menu-mobile,
 .menu-lateral,
 .menu-overlay {
@@ -1597,11 +1659,11 @@ body:not(.light) .pdf-container {
 
     /* OVERLAY */
     .menu-overlay {
-         position: fixed;
-    top: 0;
-    left: 0;
-    width: 25%;
-    height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 25%;
+        height: 100%;
     }
 
     .menu-overlay.active {

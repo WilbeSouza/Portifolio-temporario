@@ -364,8 +364,20 @@ document.addEventListener("DOMContentLoaded", () => {
   if (btnMenu) btnMenu.addEventListener("click", abrirMenu);
   if (fechar) fechar.addEventListener("click", fecharMenu);
   if (overlay) overlay.addEventListener("click", fecharMenu);
+  document.addEventListener("click", function (event) {
+
+  if (menu.classList.contains("active")) {
+
+    if (!menu.contains(event.target) && !btnMenu.contains(event.target)) {
+      fecharMenu();
+    }
+
+  }
 
 });
+
+});
+
 
 /*efeito automatico do "meu portfolio" para tablet/mobile*/
 
