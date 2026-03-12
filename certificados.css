@@ -9,7 +9,62 @@ body {
     background: var(--bg-color);
     color: var(--text-color);
 }
+/* =========================================
+   BOTÃO PREMIUM – TEMA ESCURO (CERTIFICADOS)
+   ========================================= */
 
+body:not(.light) .btn-certificado {
+
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+
+    background: linear-gradient(
+        180deg,
+        #6f6f6f 0%,
+        #5c5c5c 100%
+    );
+
+    box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+
+    transition: all 0.25s ease;
+}
+body:not(.light) .btn-certificado:hover {
+
+    background: linear-gradient(
+        180deg,
+        #8a8a8a 0%,
+        #6d6d6d 100%
+    );
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+
+    transform: translateY(-1px);
+}
+body.light .btn-certificado {
+
+    border: 1.5px solid rgba(0, 0, 0, 0.25);
+
+    background: linear-gradient(
+        180deg,
+        #f2f2f2 0%,
+        #dddddd 100%
+    );
+
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+
+    transition: all 0.25s ease;
+}
+body.light .btn-certificado:hover {
+
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #e3e3e3 100%
+    );
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+
+    transform: translateY(-1px);
+}
 .pagina-certificado {
     padding: 160px 6% 40px;
 }
@@ -90,8 +145,8 @@ body.light .topo-certificado.shrink h1 {
     font-size: 22px;
     font-weight: 500;
 
-    background-color: #7e7b7b;
-    color: #000;
+    background-color: var(--button-bg);
+    color: var(--button-text);
 
     text-decoration: none;
 
@@ -108,7 +163,7 @@ body.light .topo-certificado.shrink h1 {
 
 /* HOVER – IGUAL AO RESTO */
 .btn-certificado:hover {
-    transform: scale(1.08);
+    transform: translateY(-1px);
     background-color: #ffffff;
     box-shadow: 0 0 40px 10px rgba(180, 180, 180, 0.55);
 }
@@ -305,7 +360,7 @@ body.light .card-certificado:hover .nome-certificado {
     }
 
     .topo-certificado h1 {
-        font-size: 28px;
+        font-size:var(--fs-title-xl);
     }
 
     .btn-certificado {

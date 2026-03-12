@@ -1,5 +1,7 @@
 /*--------mudar de preto para branco--------*/
 :root {
+
+    /*cores*/
     --bg-color: #000;
     --text-color: #ffffff;
     --text-muted: #cccccc;
@@ -16,15 +18,8 @@
     --hover-text: #888;
 
     --section-shadow: 0 0 40px 10px rgba(255, 255, 255, 0.15);
-}
 
-/*------ SISTEMA DE TIPOGRAFIA------- */
-
-:root {
-
-    --font-title: "Poppins", sans-serif;
-    --font-text: "Poppins", sans-serif;
-
+    /* tipografia */
     /* ESCALA DE FONTES */
     --fs-title-xl: 42px;
     --fs-title-lg: 34px;
@@ -33,7 +28,6 @@
     --fs-text-lg: 20px;
     --fs-text-md: 18px;
     --fs-text-sm: 16px;
-
 }
 
 body.light {
@@ -61,8 +55,79 @@ body.light form input,
 body.light form textarea {
     color: #111;
 }
+/*-----------BOTÕES REFINADOS PARA O TEMA ESCURO----------*/
 
-/*ESITLO GERAL*/
+body:not(.light) .btn-cta,
+body:not(.light) .btn-curriculo,
+body:not(.light) .btn-idioma,
+body:not(.light) .btn-social button,
+body:not(.light) .btn-menu-mobile {
+
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+
+    background: linear-gradient(
+        180deg,
+        #6f6f6f 0%,
+        #5c5c5c 100%
+    );
+
+    box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+
+    transition: all 0.25s ease;
+}
+body:not(.light) .btn-cta:hover,
+body:not(.light) .btn-curriculo:hover,
+body:not(.light) .btn-idioma:hover,
+body:not(.light) .btn-social button:hover,
+body:not(.light) .btn-menu-mobile:hover {
+
+    background: linear-gradient(
+        180deg,
+        #8a8a8a 0%,
+        #6d6d6d 100%
+    );
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+
+    transform: translateY(-1px);
+}
+/*-----------BOTÕES REFINADOS PARA O TEMA CLARO----------*/
+
+body.light .btn-cta,
+body.light .btn-curriculo,
+body.light .btn-idioma,
+body.light .btn-social button,
+body.light .btn-menu-mobile {
+
+    border: 1.5px solid rgba(0, 0, 0, 0.25);
+
+    background: linear-gradient(
+        180deg,
+        #f2f2f2 0%,
+        #dddddd 100%
+    );
+
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+
+    transition: all 0.25s ease;
+}
+body.light .btn-cta:hover,
+body.light .btn-curriculo:hover,
+body.light .btn-idioma:hover,
+body.light .btn-social button:hover,
+body.light .btn-menu-mobile:hover {
+
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #e3e3e3 100%
+    );
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+
+    transform: translateY(-1px);
+}
+/*--------------ESITLO GERAL-----------------*/
 * {
     margin: 0;
     padding: 0;
@@ -71,6 +136,8 @@ body.light form textarea {
 }
 
 body {
+    font-size: var(--fs-text-md);
+    line-height: 1.6;
     background-color: var(--bg-color);
     color: var(--text-color);
     min-height: 100vh;
@@ -109,11 +176,11 @@ section {
     height: 52px;
     padding-inline: 32px;
 
-    font-size: 20px;
+    font-size: var(--fs-text-md);
     font-weight: 500;
 
-    background-color: #7e7b7b;
-    color: #000;
+    background-color: var(--button-bg);
+    color: var(--button-text);
 
     border-radius: 20px;
 
@@ -130,8 +197,8 @@ section {
 }
 
 .btn-contato .btn-cta:hover {
-    background-color: #ffffff;
-    color: #000;
+    background-color: var(--text-color);
+    color: var(--button-text);
 
     transform: scale(1.08);
 
@@ -199,7 +266,7 @@ body.light header.scrolled .menu-desktop a {
 /*-------------ESTILO DO CABEÇALHO-------------*/
 @media (min-width: 769px) {
     header nav ul li a {
-        font-size: 22px;
+        font-size: var(--fs-text-lg);
     }
 }
 
@@ -272,7 +339,7 @@ header nav ul li {
     text-align: center;
 
     font-weight: bold;
-    font-size: 22px;
+    font-size: var(--fs-text-md);
     text-decoration: none;
 
     height: 44px;
@@ -351,11 +418,11 @@ body.light header.shrink .menu-desktop a {
     justify-content: center;
     gap: 8px;
 
-    font-size: 22px;
+    font-size: var(--fs-text-md);
     font-weight: 500;
 
-    background-color: #7e7b7b;
-    color: #000;
+    background-color: var(--button-bg);
+    color: var(--button-text);
 
     text-decoration: none;
 
@@ -412,11 +479,11 @@ body.light header.shrink .menu-desktop a {
     left: 6%;
     top: 50%;
     margin-top: -26px;
-    font-size: 22px;
+    font-size: var(--fs-text-lg);
 }
 
 .acoes-curriculo h1 {
-    font-size: 45px;
+    font-size: var(--fs-title-xl);
     margin: 0;
     text-align: center;
 
@@ -450,7 +517,7 @@ body.light .acoes-curriculo {
 }
 
 
-/* PDF */
+/*-------------PDF---------------*/
 .pdf-container {
     flex: 1;
     width: 70%;
@@ -478,7 +545,7 @@ body.light .acoes-curriculo {
     display: none;
 }
 
-/*TRADUÇÃO*/
+/*-----------------TRADUÇÃO-------------*/
 .btn-idioma {
     height: 52px;
     width: 60px;
@@ -486,7 +553,7 @@ body.light .acoes-curriculo {
     gap: 4px;
 
     pointer-events: auto;
-    background-color: #7e7b7b;
+    background-color: var(--button-bg);
     border-radius: 12px;
     border: none;
     cursor: pointer;
@@ -523,7 +590,7 @@ body.light .acoes-curriculo {
     transform: scale(0.95);
 }
 
-/*ESTILO DO TOP SITE*/
+/*--------------ESTILO DO TOP SITE--------------*/
 
 section.especialidades {
     padding: 85px 4%;
@@ -539,7 +606,7 @@ section.topo-do-site .flex {
 .topo-do-site h1 {
     color: var(--text-color);
     font-size: var(--fs-title-xl);
-    line-height: 42px;
+    line-height: 1.2;
     margin-top: 85px;
 }
 
@@ -576,7 +643,7 @@ section.topo-do-site .flex {
     }
 }
 
-/*ESTILO DAS ESPECIALIDADES*/
+/*-------------ESTILO DAS ESPECIALIDADES-------------------*/
 section.especialidades .flex {
     display: flex;
     justify-content: center;
@@ -602,7 +669,7 @@ section.especialidades .flex {
 
     max-width: 420px;
     flex: 1 1 320px;
-    font-size: 20px;
+    font-size: var(--fs-text-md);
 
     height: 460px;
     /* 🔥 AGORA FIXO DE VERDADE */
@@ -641,7 +708,7 @@ section.especialidades .flex {
 }
 
 
-/*ESTILO DO ICONES*/
+/*-------------------ESTILO DO ICONES------------------*/
 .skills-icons {
     display: flex;
     justify-content: center;
@@ -697,7 +764,7 @@ section.sobre .flex {
 }
 
 .sobre .txt-sobre h2 {
-    font-size: 45px;
+    font-size: var(--fs-title-xl);
     line-height: 40px;
     margin-bottom: 30px;
 }
@@ -722,7 +789,7 @@ section.sobre .flex {
     height: 60px;
     border-radius: 30px;
     border: none;
-    background-color: #7e7b7b;
+    background-color: var(--button-bg);
     font-size: 35px;
     cursor: pointer;
     margin: 10px;
@@ -736,7 +803,7 @@ section.sobre .flex {
 
 .btn-social button:hover {
     background-color: #ffffff;
-    color: #000;
+    color: var(--button-text);
 
     transform: scale(1.12);
 
@@ -807,7 +874,7 @@ body.light .img-port::after {
     transition: .5s;
 
 
-    font-size: 2rem;
+    font-size: var(--fs-title-md);
     color: #fff;
 
     box-shadow: none;
@@ -835,7 +902,7 @@ body.light .img-port::after {
 
 }
 
-/*ESTILO DO FORMULARIO*/
+/*-------------ESTILO DO FORMULARIO-------------*/
 section.formulario {
     padding: 70px 4% 30px;
 }
@@ -859,7 +926,7 @@ form textarea {
     padding: 20px 15px;
     border-radius: 15px;
     color: var(--text-color);
-    font-size: 18px;
+    font-size: var(--fs-text-md);
 }
 
 form textarea {
@@ -901,16 +968,16 @@ form .btn-contato .btn-cta {
 .comentarios h2 {
     color: var(--text-color);
     margin-bottom: 8px;
-    font-size: 18px;
+    font-size: var(--fs-title-lg);
 }
 
 .comentarios p {
     color: var(--text-color);
-    font-size: 16px;
+    font-size: var(--fs-text-md);
     line-height: 1.4;
 }
 
-/*MODAL SUCESSO*/
+/*------------MODAL SUCESSO---------------*/
 .sucesso-modal {
     position: fixed;
     inset: 0;
@@ -935,7 +1002,7 @@ form .btn-contato .btn-cta {
 .sucesso-box {
     padding: 40px 60px;
     border-radius: 20px;
-    font-size: 22px;
+    font-size: var(--fs-text-lg);
     font-weight: 600;
     text-align: center;
 
@@ -984,7 +1051,7 @@ footer .line-footer p a {
     color: var(--text-color);
     text-decoration: none;
     margin-right: 8px;
-    font-size: 18px;
+    font-size: var(--fs-text-md);
     align-items: center;
 }
 
@@ -997,7 +1064,7 @@ body.light .logo-footer img {
     filter: drop-shadow(0 0 8px rgba(60, 60, 60, 0.95));
 }
 
-/*ITENS DE MENU*/
+/*----------ITENS DE MENU-----------*/
 header .btn-contato {
     margin: 0;
     display: flex;
@@ -1008,6 +1075,23 @@ header .btn-contato {
 header,
 header .interface {
     overflow: visible;
+}
+
+/*------TIPOGRAFIA------*/
+@media (max-width:1280px) {
+
+    :root {
+
+        --fs-title-xl: 38px;
+        --fs-title-lg: 32px;
+        --fs-title-md: 26px;
+
+        --fs-text-lg: 19px;
+        --fs-text-md: 17px;
+        --fs-text-sm: 15px;
+
+    }
+
 }
 
 /*Macbook/notebook, resolução 1280x800*/
@@ -1037,62 +1121,48 @@ header .interface {
     }
 
 }
-@media screen and (max-width: 1280px){
 
-:root{
-
---fs-title-xl: 38px;
---fs-title-lg: 32px;
---fs-title-md: 26px;
-
---fs-text-lg: 19px;
---fs-text-md: 17px;
---fs-text-sm: 15px;
-
-}
-
-}
-
-/*ESPAÇAMENTO REAL ENTRE PROJETOS*/
 @media (min-width: 1281px) {
 
     section.portifolio .flex {
         display: flex;
         flex-wrap: nowrap;
-        /* 🔥 impede quebrar */
+        /*impede quebrar */
         justify-content: center;
         gap: 30px;
     }
 
     .img-port {
         flex: 0 0 360px;
-        /* 🔥 largura fixa real */
+        /*largura fixa real */
     }
 }
 
 /*TABLET/IPAD resolução 768x1024*/
+/*------TIPOGRAFIA------*/
+@media (max-width:1024px) {
+
+    :root {
+
+        --fs-title-xl: 34px;
+        --fs-title-lg: 28px;
+        --fs-title-md: 24px;
+
+        --fs-text-lg: 18px;
+        --fs-text-md: 16px;
+        --fs-text-sm: 15px;
+
+    }
+
+}
+
 /*------PARTE "Criando experiencia"----------*/
-@media screen and (max-width: 1024px){
 
-:root{
-
---fs-title-xl: 34px;
---fs-title-lg: 28px;
---fs-title-md: 24px;
-
---fs-text-lg: 18px;
---fs-text-md: 16px;
---fs-text-sm: 15px;
-
-}
-
-}
 @media (min-width: 768px) and (max-width: 1280px) {
 
     header {
         height: 100px;
         padding: 0;
-        /* 🔥 remove padding lateral do header */
     }
 
     main {
@@ -1112,7 +1182,7 @@ header .interface {
     }
 
     .menu-desktop a {
-        font-size: 18px;
+        font-size: var(--fs-text-md);
         min-width: auto;
         padding: 0 6px;
         height: 36px;
@@ -1124,7 +1194,6 @@ header .interface {
         flex-shrink: 0;
     }
 
-    /* agrupa tudo mais compacto */
     header>.interface {
         width: 100%;
         max-width: 100%;
@@ -1161,12 +1230,12 @@ header .interface {
     }
 
     .topo-do-site h1 {
-        font-size: 30px;
+        font-size: var(--fs-title-xl);
         line-height: 1.3;
     }
 
     .topo-do-site .txt-topo-site p {
-        font-size: 15px;
+        font-size: var(--fs-text-lg);
         line-height: 1.6;
         text-align: justify;
     }
@@ -1201,8 +1270,6 @@ header .interface {
 
         flex-shrink: 0;
     }
-
-    /* ícone sempre visível */
     .curriculo-mobile i {
         font-size: 18px;
         transition: opacity .2s ease;
@@ -1235,15 +1302,10 @@ header .interface {
 
         transition: opacity .25s ease;
     }
-
-    /* quando passa o mouse */
     .curriculo-mobile:hover span {
         opacity: 1;
         pointer-events: auto;
-        /* 🔥 só ativa quando visível */
     }
-
-    /* quando abre, esconde o ícone */
     .curriculo-mobile:hover i {
         opacity: 0;
     }
@@ -1265,7 +1327,7 @@ header .interface {
     }
 
     .sobre .txt-sobre p {
-        font-size: 17px;
+        font-size: var(--fs-text-md);
         line-height: 1.6;
         text-align: justify;
     }
@@ -1282,57 +1344,39 @@ header .interface {
         clear: both;
     }
 
-    /*-----------PARTE PROJETOS-----------*/
-    /* TABLET MENOR (768 até 819) */
-    @media (min-width: 768px) and (max-width: 819px) {
+}
 
-        section.portifolio .flex {
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-        }
+/*-----------FOOTER-----------*/
+.line-footer .flex {
+    align-items: center;
+    justify-content: space-between;
+}
 
-        .img-port {
-            width: 100%;
-            max-width: 420px;
-            height: 420px;
-        }
+footer .logo-footer img {
+    width: 110px;
+}
 
-    }
+footer .btn-social {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
 
-    /*-----------FOOTER-----------*/
-    .line-footer .flex {
+/*-----------PARTE PROJETOS-----------*/
+/* TABLET MENOR (768 até 819) */
+@media (min-width: 768px) and (max-width: 819px) {
+
+    section.portifolio .flex {
+        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
+        gap: 30px;
     }
 
-    footer .logo-footer img {
-        width: 110px;
-        /* diminui a logo */
+    .img-port {
+        width: 100%;
+        max-width: 420px;
+        height: 420px;
     }
-
-    footer .btn-social {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-    }
-
-    /* TABLET MAIOR (820 até 1024) */
-    @media (min-width: 820px) and (max-width: 1024px) {
-
-        section.portifolio .flex {
-            flex-direction: row;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .img-port {
-            width: 300px;
-            height: 420px;
-        }
-    }
-
 
 }
 
@@ -1357,6 +1401,22 @@ header .interface {
 
 }
 
+/* TABLET MAIOR (820 até 1024) */
+@media (min-width: 820px) and (max-width: 1024px) {
+
+    section.portifolio .flex {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .img-port {
+        width: 300px;
+        height: 420px;
+    }
+}
+
 /* iPad Air 4 e iPad Pro 11 - LANDSCAPE */
 @media (min-width: 820px) and (max-width: 1024px) and (orientation: landscape) {
 
@@ -1375,7 +1435,24 @@ header .interface {
 
 }
 
-/*MOBILE */
+/*--------------MOBILE--------------- */
+/*------TIPOGRAFIA------*/
+@media (max-width:768px) {
+
+    :root {
+
+        --fs-title-xl: 30px;
+        --fs-title-lg: 24px;
+        --fs-title-md: 20px;
+
+        --fs-text-lg: 16px;
+        --fs-text-md: 15px;
+        --fs-text-sm: 14px;
+
+    }
+
+}
+
 @media (max-width: 768px) {
     .curriculo-desktop {
         display: none;
@@ -1391,11 +1468,11 @@ header .interface {
         padding: 16px 28px;
 
         background: #7e7b7b;
-        color: #000;
+        color: var(--button-text);
         text-decoration: none;
         border-radius: 18px;
 
-        font-size: 20px;
+        font-size: var(--fs-title-md);
         font-weight: 600;
         box-shadow: 0 0 25px rgba(255, 255, 255, .25);
     }
@@ -1436,7 +1513,7 @@ header .interface {
     }
 
     .menu-desktop a {
-        font-size: 16px;
+        font-size: var(--fs-text-md);
         min-width: auto;
         padding: 0 6px;
         height: 36px;
@@ -1483,24 +1560,26 @@ body:not(.light) .pdf-container {
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
 }
 
-/*MOBILE* resolução 390x844/
+/*MOBILE* resolução 390x844*/
+/*------TIPOGRAFIA------*/
+@media (max-width:480px) {
+
+    :root {
+
+        --fs-title-xl: 26px;
+        --fs-title-lg: 22px;
+        --fs-title-md: 18px;
+
+        --fs-text-lg: 15px;
+        --fs-text-md: 14px;
+        --fs-text-sm: 13px;
+
+    }
+
+}
 
 /* ESCONDE COMPLETAMENTE MENU MOBILE FORA DO DESKTOP*/
-@media screen and (max-width: 480px){
 
-:root{
-
---fs-title-xl: 26px;
---fs-title-lg: 22px;
---fs-title-md: 18px;
-
---fs-text-lg: 15px;
---fs-text-md: 14px;
---fs-text-sm: 13px;
-
-}
-
-}
 .btn-menu-mobile,
 .menu-lateral,
 .menu-overlay {
@@ -1517,21 +1596,7 @@ body:not(.light) .pdf-container {
     }
 
 }
-@media screen and (max-width: 767px){
 
-:root{
-
---fs-title-xl: 30px;
---fs-title-lg: 24px;
---fs-title-md: 20px;
-
---fs-text-lg: 16px;
---fs-text-md: 15px;
---fs-text-sm: 14px;
-
-}
-
-}
 @media (max-width: 767px) {
 
     /* ESCONDE MENU DESKTOP */
@@ -1561,7 +1626,7 @@ body:not(.light) .pdf-container {
     /* REMOVE EFEITO HOVER VISUAL */
     .curriculo-mobile:hover {
         transform: none;
-        background-color: #7e7b7b;
+        background-color: var(--button-bg);
         box-shadow: 0 0 20px 6px rgba(160, 160, 160, 0.35);
     }
 
@@ -1571,7 +1636,7 @@ body:not(.light) .pdf-container {
         height: 42px;
 
         border: none;
-        background: #7e7b7b;
+        background: var(--button-bg);
         border-radius: 12px;
 
         display: flex;
@@ -1599,7 +1664,7 @@ body:not(.light) .pdf-container {
 
     .btn-menu-mobile i {
         font-size: 22px;
-        color: #000;
+        color: var(--button-text);
     }
 
     /*-----------BOTAO FOOTER------------*/
@@ -1665,7 +1730,7 @@ body:not(.light) .pdf-container {
     }
 
     .menu-mobile-content a {
-        font-size: 22px;
+        font-size: var(--fs-text-lg);
         text-decoration: none;
         color: var(--text-color);
         font-weight: 600;
@@ -1687,8 +1752,8 @@ body:not(.light) .pdf-container {
     /* -------------PARTE "CRIANDO EXPERIENCIA"---------------*/
 
     .topo-do-site h1 {
-        font-size: 28px;
-        line-height: 34px;
+        font-size: var(--fs-title-xl);
+        line-height: 1.2;
         text-align: center;
     }
 
@@ -1716,7 +1781,7 @@ body:not(.light) .pdf-container {
     .topo-do-site .txt-topo-site p {
         text-align: justify;
         margin: 20px 0;
-        font-size: 16px;
+        font-size: var(--fs-text-lg);
     }
 
     .topo-do-site .btn-contato {
@@ -1726,7 +1791,7 @@ body:not(.light) .pdf-container {
 
     /*-----------PARTE DO "CONHECIMENTOS & PRÁTICAS"------------*/
     h2.titulo {
-        font-size: 22px;
+        font-size: var(--fs-title-lg);
     }
 
     section.especialidades {
@@ -1740,11 +1805,11 @@ body:not(.light) .pdf-container {
     }
 
     .especialidades .especialidades-box h3 {
-        font-size: 18px;
+        font-size: var(--fs-title-md);
     }
 
     .especialidades .especialidades-box p {
-        font-size: 14px;
+        font-size: var(--fs-text-md);
         line-height: 1.5;
     }
 
@@ -1784,12 +1849,12 @@ body:not(.light) .pdf-container {
     }
 
     .sobre .txt-sobre h2 {
-        font-size: 28px;
+        font-size: var(--fs-title-xl);
         line-height: 1.2;
     }
 
     .sobre .txt-sobre p {
-        font-size: 15px;
+        font-size: var(--fs-text-md);
         line-height: 1.6;
         margin: 20px 0;
         text-align: justify;
@@ -1836,15 +1901,13 @@ body:not(.light) .pdf-container {
     }
 }
 
-
-
 /*-------Confirmação de envia de comentario-------*/
 @media (max-width: 767px) {
 
     .sucesso-box {
         max-width: 90%;
         padding: 22px 18px;
-        font-size: 18px;
+        font-size: var(--fs-text-lg);
         line-height: 1.4;
     }
 
