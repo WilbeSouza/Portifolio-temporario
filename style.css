@@ -127,6 +127,10 @@ body.light .btn-menu-mobile:hover {
 
     transform: translateY(-1px);
 }
+.portifolio a{
+    text-decoration: none;
+    display: block;
+}
 /*--------------ESITLO GERAL-----------------*/
 * {
     margin: 0;

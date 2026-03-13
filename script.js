@@ -379,7 +379,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-/*efeito automatico do "meu portfolio" para tablet/mobile*/
+/*efeito automatico do "Meus Projetos" para tablet/mobile*/
 
 const mediaQuery = window.matchMedia("(max-width: 1024px)");
 
@@ -407,4 +407,9 @@ function ativarAnimacao(e) {
 }
 
 ativarAnimacao(mediaQuery);
-mediaQuery.addEventListener("change", ativarAnimacao);
+/*--------------------*/
+window.addEventListener("pageshow", () => {
+    if (document.activeElement) {
+        document.activeElement.blur();
+    }
+});
