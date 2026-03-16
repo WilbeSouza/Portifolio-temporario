@@ -20,7 +20,7 @@ if (form) {
   });
 }
 
-// evita formulário voltar preenchido ao navegar
+/*-----------evita formulário voltar preenchido ao navegar---------------*/
 window.addEventListener("pageshow", function (event) {
   if (event.persisted) {
     const form = document.getElementById("form-Contato");
@@ -203,13 +203,12 @@ document.addEventListener("DOMContentLoaded", () => {
         ? "img/Icons-EUA.png"
         : "img/Icons-BR.png";
     }
-    // idioma padrão ao abrir o site
+
     if (!sessionStorage.getItem("lang")) {
       sessionStorage.setItem("lang", "pt");
     }
   }
 
-  // 🔥 aplica idioma salvo EM QUALQUER PÁGINA
   const savedLang = sessionStorage.getItem("lang") || "pt";
   setLanguage(savedLang);
 
@@ -233,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-/*efeito no header*/
+/*-----------efeito no header-------------*/
 const menuLinks = document.querySelectorAll('.menu-desktop a[href^="#"]');
 
 if (menuLinks.length > 0) {
@@ -257,7 +256,7 @@ if (menuLinks.length > 0) {
 window.addEventListener("scroll", () => {
   const header = document.querySelector("header");
 
-  if (!header) return; // ← proteção
+  if (!header) return;
 
   if (window.scrollY > 50) {
     header.classList.add("shrink");
@@ -266,7 +265,7 @@ window.addEventListener("scroll", () => {
   }
 });
 
-/*botão lua/sol (mudando cor do site)*/
+
 
 function setTheme(theme) {
   const isLight = theme === "light";
@@ -284,12 +283,12 @@ function setTheme(theme) {
     }
   }
 
-  /* FORÇA RECÁLCULO DOS EFEITOS DE SCROLL */
+ 
   window.dispatchEvent(new Event("scroll"));
 }
 
-/* aplica tema salvo ao carregar qualquer página */
-// BOTÃO TEMA (sessão apenas)
+
+/*-------------BOTÃO TEMA (sessão apenas)---------------*/
 document.addEventListener("DOMContentLoaded", () => {
 
   const savedTheme = sessionStorage.getItem("theme") || "dark";
@@ -309,8 +308,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-/*tradução do curriculo*/
-// ===== CURRÍCULO DINÂMICO POR IDIOMA =====
+/*-------tradução do curriculo------------*/
 document.addEventListener("DOMContentLoaded", () => {
 
   const currentLang = sessionStorage.getItem("lang") || "pt";
@@ -326,7 +324,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (iframe) iframe.src = pdfPath;
   if (downloadBtn) downloadBtn.href = pdfPath;
 
-  // ===== Botão mobile do INDEX =====
+ 
   const mobileBtn = document.getElementById("cv-mobile");
   if (mobileBtn) mobileBtn.href = pdfPath;
 
@@ -335,7 +333,7 @@ document.addEventListener("DOMContentLoaded", () => {
     : "en";
 });
 
-//menu mobile//
+/*---------menu mobile------------*/
 document.addEventListener("DOMContentLoaded", () => {
 
   const btnMenu = document.getElementById("btn-menu-mobile");
@@ -378,8 +376,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-
-/*efeito automatico do "Meus Projetos" para tablet/mobile*/
+/*----efeito automatico do "Meus Projetos" para tablet/mobile----*/
 
 const mediaQuery = window.matchMedia("(max-width: 1024px)");
 
@@ -398,7 +395,7 @@ function ativarAnimacao(e) {
         }
       });
     }, {
-      threshold: 0.8,
+      threshold: 0.5,
       rootMargin: "-20% 0px -20% 0px"
     });
 
@@ -407,9 +404,3 @@ function ativarAnimacao(e) {
 }
 
 ativarAnimacao(mediaQuery);
-/*--------------------*/
-window.addEventListener("pageshow", () => {
-    if (document.activeElement) {
-        document.activeElement.blur();
-    }
-});
